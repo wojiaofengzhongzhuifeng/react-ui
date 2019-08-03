@@ -8,4 +8,12 @@ module.exports = {
 		path: path.resolve(__dirname, './dist/lib/'),
 		libraryTarget: 'umd',
 	},
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				loader: 'awesome-typescript-loader',
+			},
+		],
+	},
 };
