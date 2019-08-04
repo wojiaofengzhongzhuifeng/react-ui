@@ -7,8 +7,14 @@
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
-  "scripts":{
+  "scripts": {
     "start": "npx webpack-dev-server",
     "build": "npx webpack"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
