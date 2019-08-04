@@ -10,7 +10,9 @@ interface Props {
 const Icon: React.FunctionComponent<Props> = ({ iconName }) => {
   return (
     <div>
-      {iconName}
+      <svg>
+        <use xlinkHref={`#${iconName}`}/>
+      </svg>
     </div>
   );
 };
