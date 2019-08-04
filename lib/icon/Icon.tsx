@@ -1,6 +1,5 @@
 import * as React from 'react';
-// @ts-ignore
-import '../svg/aliyun.svg';
+import './importIcons'
 
 
 const Icon = () => {
@@ -8,6 +7,10 @@ const Icon = () => {
     <div>
       <svg>
         <use xlinkHref="#aliyun" />
+      </svg>
+
+      <svg>
+        <use xlinkHref="#wechat" />
       </svg>
     </div>
   );
