@@ -6,7 +6,7 @@ import './importIcons'
 
 interface Props {
   iconName: string
-  onClick: (e: React.MouseEvent<SVGSVGElement, MouseEvent>)=>void
+  onClick: React.MouseEventHandler<SVGElement>
 }
 
 const Icon: React.FunctionComponent<Props> = ({ iconName, onClick }) => {
