@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './style.scss';
-import classes from '../helpers/classes';
+import {classes} from '../helpers/classes';
 
 import './importIcons';
 

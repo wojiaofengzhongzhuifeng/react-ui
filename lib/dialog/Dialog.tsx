@@ -1,22 +1,29 @@
 import * as React from 'react';
+import { scopeClass } from '../helpers/classes';
 
 interface Props {
   visible: Boolean
 }
 
+const sc = scopeClass('rao-dialog');
+
+console.log(sc('mask'));
+console.log(sc());
+
+
 const Dialog: React.FunctionComponent<Props> = (props)=> {
   const {visible, children} = props;
 
   const result = visible ? (<div>
-    <div className="rao-dialog-mask"/>
-    <div className="rao-dialog">
-      <header className="rao-dialog-header">
+    <div className={sc('mask')}/>
+    <div className={sc()}>
+      <header className={sc('header')}>
         提示
       </header>
-      <main className="rao-dialog-main">
+      <main className={sc('main')}>
         {children}
       </main>
-      <footer className="rao-dialog-footer">
+      <footer className={sc('footer')}>
         <button>tset</button>
       </footer>
     </div>
