@@ -1,13 +1,16 @@
 import * as React from 'react';
 
 interface Props {
-
+  visible: Boolean
 }
 
-const Dialog: React.FunctionComponent<Props> = ()=> {
+const Dialog: React.FunctionComponent<Props> = (props)=> {
+  const {visible, children} = props;
+
+  const content = visible ? children : null;
   return (
     <div>
-      dialog
+      {content}
     </div>
   )
 };
