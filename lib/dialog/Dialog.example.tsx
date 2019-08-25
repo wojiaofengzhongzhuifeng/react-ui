@@ -12,7 +12,15 @@ const DialogExample: React.FunctionComponent = ()=> {
   return (
     <div>
       <h1>Dialog</h1>
-      <Dialog visible={visible}>
+      <Dialog
+        visible={visible}
+        buttons={
+          [
+            <button>test</button>,
+            <button>test123321</button>
+          ]
+        }
+      >
         hi this is me
       </Dialog>
       <button onClick={handleClickButton}>打开 dialog</button>
