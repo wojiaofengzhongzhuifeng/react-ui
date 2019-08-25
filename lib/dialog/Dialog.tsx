@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { scopeClass } from '../helpers/classes';
+import './dialog.scss';
 
 interface Props {
   visible: Boolean
