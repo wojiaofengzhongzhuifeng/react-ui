@@ -72,13 +72,17 @@ export const alert = (options: AlertProps)=>{
   const div = document.createElement('div');
   document.body.appendChild(div);
 
+  const closeModal = ()=>{
+    ReactDOM.render(React.cloneElement(ReactComponent, {visible: false}), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+  };
+
   // 为用户 footer 添加点击事件，事件执行「关闭modal」操作 + 用户想要执行的代码。
   const addClickHandleButtons = options.buttons && options.buttons.map((item)=>{
     return React.cloneElement(item, {onClick: ()=>{
         item.props.onClick();
-        ReactDOM.render(React.cloneElement(ReactComponent, {visible: false}), div);
-        ReactDOM.unmountComponentAtNode(div);
-        div.remove();
+        closeModal();
       }})
   });
 
@@ -88,16 +92,16 @@ export const alert = (options: AlertProps)=>{
       buttons={addClickHandleButtons}
       closeOnClickMask={options.closeOnClickMask}
       handleClickXOrMask={()=>{
-        ReactDOM.render(React.cloneElement(ReactComponent, {visible: false}), div);
-        ReactDOM.unmountComponentAtNode(div);
-        div.remove();
+        closeModal();
       }}
     >
       {options.text}
     </Dialog>
   );
 
-  ReactDOM.render(ReactComponent, div)
+  ReactDOM.render(ReactComponent, div);
+
+  return closeModal;
 };
 
 export default Dialog;

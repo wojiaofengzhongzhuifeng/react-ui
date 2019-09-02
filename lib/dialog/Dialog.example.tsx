@@ -13,8 +13,14 @@ const DialogExample: React.FunctionComponent = ()=> {
     const test1 = ()=>{
       console.log(2);
     };
-    alert({
-      text: "test",
+    const closeModalFun = alert({
+      text: (
+        <div>
+          <h1>test123</h1>
+          <p>nihaifdsa</p>
+          <button onClick={()=>{closeModalFun()}}>关闭这个 modal </button>
+        </div>
+      ),
       buttons: [
         <button onClick={()=>{console.log(1);}}>test1</button>,
         <button onClick={test1}>test1</button>,
