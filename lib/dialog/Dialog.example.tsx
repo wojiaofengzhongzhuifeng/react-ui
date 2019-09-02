@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Dialog from './Dialog';
+import Dialog, {alert} from './Dialog';
 import { useState } from 'react';
 
 const DialogExample: React.FunctionComponent = ()=> {
@@ -7,6 +7,10 @@ const DialogExample: React.FunctionComponent = ()=> {
 
   const handleClickButton = ()=>{
     setVisible(!visible);
+  };
+
+  const test = ()=>{
+    alert({text: 123321})
   };
 
   return (
@@ -26,6 +30,7 @@ const DialogExample: React.FunctionComponent = ()=> {
         hi this is me
       </Dialog>
       <button onClick={handleClickButton}>打开 dialog</button>
+      <button onClick={test}>test</button>
     </div>
   );
 };

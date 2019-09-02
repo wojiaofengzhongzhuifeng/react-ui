@@ -60,4 +60,26 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
   )
 };
 
+export const alert = (options)=>{
+  const div = document.createElement('div');
+  document.body.appendChild(div);
+  const ReactComponent = (
+    <Dialog
+      visible={true}
+      buttons={
+        [
+          <button>test</button>,
+          <button>test123321</button>
+        ]
+      }
+      closeOnClickMask={false}
+      handleClose={()=>{console.log(1);}}
+    >
+      {options.text}
+    </Dialog>
+  );
+
+  ReactDOM.render(ReactComponent, div)
+};
+
 export default Dialog;
