@@ -1,13 +1,17 @@
 import React from 'react';
+import {scopeClass} from '../helpers/classes';
+import './style.scss';
 
 interface Props extends React.Props<any>{
 
 }
 
+const sc = scopeClass('rao-layout');
+
 const Layout: React.FunctionComponent<Props> = (props)=>{
   const {children} = props;
   return (
-    <div>
+    <div className={sc('layout')}>
       {children}
     </div>
   )
