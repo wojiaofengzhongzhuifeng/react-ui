@@ -33,7 +33,7 @@ const DialogExample: React.FunctionComponent = ()=> {
             <button>test123321</button>
           ]
         }
-        handleClose={()=>{setVisible(!visible)}}
+        handleClickXOrMask={()=>{setVisible(!visible)}}
         closeOnClickMask={false}
       >
         hi this is me

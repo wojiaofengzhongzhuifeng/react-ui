@@ -8,7 +8,7 @@ import Icon from '../icon/Icon';
 interface Props extends React.Props<any>{
   visible: Boolean
   buttons?: Array<ReactElement>
-  handleClose: React.MouseEventHandler
+  handleClickXOrMask: React.MouseEventHandler
   closeOnClickMask?: Boolean
 }
 
@@ -25,15 +25,15 @@ console.log(sc());
 
 
 const Dialog: React.FunctionComponent<Props> = (props)=> {
-  const {visible, children, buttons, handleClose, closeOnClickMask} = props;
+  const {visible, children, buttons, handleClickXOrMask, closeOnClickMask} = props;
 
   const handleClickIcon:React.MouseEventHandler = (e)=>{
-    handleClose(e);
+    handleClickXOrMask(e);
   };
 
   const handleClickMask: React.MouseEventHandler = (e)=>{
     if(closeOnClickMask){
-      handleClose(e);
+      handleClickXOrMask(e);
     }
   };
 
@@ -74,9 +74,9 @@ export const alert = (options: AlertProps)=>{
   const ReactComponent = (
     <Dialog
       visible={true}
-      buttons={options.buttons}
+      buttons={addClickHandleButtons}
       closeOnClickMask={options.closeOnClickMask}
-      handleClose={()=>{
+      handleClickXOrMask={()=>{
         ReactDOM.render(React.cloneElement(ReactComponent, {visible: false}), div);
         ReactDOM.unmountComponentAtNode(div);
         div.remove();
