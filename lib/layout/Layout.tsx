@@ -1,12 +1,15 @@
 import React from 'react';
 
-interface Props {
+interface Props extends React.Props<any>{
 
 }
 
-const Layout: React.FunctionComponent<Props> = ()=>{
+const Layout: React.FunctionComponent<Props> = (props)=>{
+  const {children} = props;
   return (
-    <div>Layout</div>
+    <div>
+      {children}
+    </div>
   )
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './Header';
-import Sider from './Sider';
 import Content from './Content';
 import Footer from './Footer';
+import Layout from './Layout';
 
 interface Props{
 
@@ -11,10 +11,11 @@ interface Props{
 const LayoutExample: React.FunctionComponent<Props> = ()=>{
   return (
     <div>
-      <Header />
-      <Sider/>
-      <Content />
-      <Footer />
+      <Layout>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
+      </Layout>
     </div>
   )
 };
