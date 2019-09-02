@@ -73,7 +73,11 @@ export const alert = (options)=>{
         ]
       }
       closeOnClickMask={false}
-      handleClose={()=>{console.log(1);}}
+      handleClose={()=>{
+        ReactDOM.render(React.cloneElement(ReactComponent, {visible: false}), div);
+        ReactDOM.unmountComponentAtNode(div);
+        div.remove();
+      }}
     >
       {options.text}
     </Dialog>
