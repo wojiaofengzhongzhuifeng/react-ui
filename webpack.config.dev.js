@@ -9,5 +9,10 @@ module.exports = Object.assign({}, base, {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: 'example.html'
-		})]
+		})],
+	devServer: {
+		historyApiFallback: true,
+		contentBase: './',
+		hot: true
+	},
 })
