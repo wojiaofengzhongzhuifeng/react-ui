@@ -2,7 +2,7 @@ import React from 'react';
 import {scopeClass} from '../helpers/classes';
 import './style.scss';
 
-interface Props extends React.Props<any>{
+interface Props extends React.HTMLAttributes<HTMLDivElement>, React.Props<any>{
 
 }
 
