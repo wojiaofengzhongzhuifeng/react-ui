@@ -10,7 +10,16 @@ const DialogExample: React.FunctionComponent = ()=> {
   };
 
   const test = ()=>{
-    alert({text: 123321})
+    const test1 = ()=>{
+      console.log(2);
+    };
+    alert({
+      text: "test",
+      buttons: [
+        <button onClick={()=>{console.log(1);}}>test1</button>,
+        <button onClick={test1}>test1</button>,
+      ]
+    })
   };
 
   return (

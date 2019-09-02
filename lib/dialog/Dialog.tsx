@@ -5,11 +5,17 @@ import './dialog.scss';
 import { ReactElement, Fragment } from 'react';
 import Icon from '../icon/Icon';
 
-interface Props {
+interface Props extends React.Props<any>{
   visible: Boolean
-  buttons: Array<ReactElement>
+  buttons?: Array<ReactElement>
   handleClose: React.MouseEventHandler
   closeOnClickMask?: Boolean
+}
+
+interface AlertProps {
+  closeOnClickMask?: boolean
+  buttons?: Array<ReactElement>
+  text: string | ReactElement
 }
 
 const sc = scopeClass('rao-dialog');
@@ -44,7 +50,7 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
         {children}
       </main>
       <footer className={sc('footer')}>
-        {buttons.map((item, key)=>{
+        {buttons && buttons.map((item, key)=>{
           return React.cloneElement(item, {key})
         })}
       </footer>
@@ -60,19 +66,16 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
   )
 };
 
-export const alert = (options)=>{
+
+
+export const alert = (options: AlertProps)=>{
   const div = document.createElement('div');
   document.body.appendChild(div);
   const ReactComponent = (
     <Dialog
       visible={true}
-      buttons={
-        [
-          <button>test</button>,
-          <button>test123321</button>
-        ]
-      }
-      closeOnClickMask={false}
+      buttons={options.buttons}
+      closeOnClickMask={options.closeOnClickMask}
       handleClose={()=>{
         ReactDOM.render(React.cloneElement(ReactComponent, {visible: false}), div);
         ReactDOM.unmountComponentAtNode(div);
