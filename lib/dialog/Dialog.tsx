@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import { scopeClass } from '../helpers/classes';
 import './dialog.scss';
 import { ReactElement, Fragment } from 'react';
@@ -50,9 +51,11 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
     </div>
   </div>) : null;
 
+  const reactPortal = ReactDOM.createPortal(result, document.querySelector('body') as Element);
+
   return (
     <div>
-      {result}
+      {reactPortal}
     </div>
   )
 };
