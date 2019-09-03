@@ -11,7 +11,7 @@ const sc = scopeClass('rao-layout');
 const Layout: React.FunctionComponent<Props> = (props)=>{
   const {children} = props;
   return (
-    <div className={sc('layout')}>
+    <div className={sc('layout')} {...props}>
       {children}
     </div>
   )

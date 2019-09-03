@@ -12,13 +12,13 @@ interface Props{
 const LayoutExample: React.FunctionComponent<Props> = ()=>{
   return (
     <div>
-      <Layout>
+      <Layout style={{marginBottom: "10px"}}>
         <Header>Header</Header>
         <Content>Content</Content>
         <Footer>Footer</Footer>
       </Layout>
 
-      <Layout>
+      <Layout style={{marginBottom: "10px"}}>
         <Header>Header</Header>
         <Layout>
           <Sider>Sider</Sider>
@@ -27,7 +27,7 @@ const LayoutExample: React.FunctionComponent<Props> = ()=>{
         <Footer>Footer</Footer>
       </Layout>
 
-      <Layout>
+      <Layout style={{marginBottom: "10px"}}>
         <Header>Header</Header>
         <Layout>
           <Content>Content</Content>
@@ -36,7 +36,7 @@ const LayoutExample: React.FunctionComponent<Props> = ()=>{
         <Footer>Footer</Footer>
       </Layout>
 
-      <Layout>
+      <Layout style={{marginBottom: "10px"}}>
         <Sider>Sider</Sider>
         <Layout>
           <Header>Header</Header>
