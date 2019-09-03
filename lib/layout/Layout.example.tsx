@@ -4,6 +4,7 @@ import Content from './Content';
 import Footer from './Footer';
 import Layout from './Layout';
 import Sider from './Sider';
+import './layout.example.scss';
 
 interface Props{
 
@@ -12,7 +13,7 @@ interface Props{
 const LayoutExample: React.FunctionComponent<Props> = ()=>{
   return (
     <div>
-      <Layout style={{marginBottom: "10px"}}>
+      <Layout style={{marginBottom: "10px"}} className={"test"}>
         <Header>Header</Header>
         <Content>Content</Content>
         <Footer>Footer</Footer>
