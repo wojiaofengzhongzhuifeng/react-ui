@@ -15,7 +15,7 @@ const LayoutExample: React.FunctionComponent<Props> = ()=>{
     <div>
       <Layout style={{marginBottom: "10px"}} className={"test"}>
         <Header>Header</Header>
-        <Content>Content</Content>
+        <Content style={{border: '1px solid red'}} className={'test123321'}>this is content</Content>
         <Footer>Footer</Footer>
       </Layout>
 

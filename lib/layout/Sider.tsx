@@ -1,13 +1,15 @@
 import React from 'react';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement>, React.Props<any>{
 
 }
 
-const Slider: React.FunctionComponent<Props> = ()=>{
+const Sider: React.FunctionComponent<Props> = (props)=>{
+  const {children, className} = props;
+
   return (
-    <div>Slider</div>
+    <div {...props} className={className}>{children}</div>
   )
 };
 
-export default Slider;
+export default Sider;

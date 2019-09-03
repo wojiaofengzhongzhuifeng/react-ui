@@ -1,12 +1,14 @@
 import React from 'react';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement>, React.Props<any>{
 
 }
 
-const Footer: React.FunctionComponent<Props> = ()=>{
+const Footer: React.FunctionComponent<Props> = (props)=>{
+  const {children, className} = props;
+
   return (
-    <div>Footer</div>
+    <div {...props} className={className}>{children}</div>
   )
 };
 

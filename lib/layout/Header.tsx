@@ -1,12 +1,14 @@
 import React from 'react';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement>, React.Props<any>{
 
 }
 
-const Header: React.FunctionComponent<Props> = ()=>{
+const Header: React.FunctionComponent<Props> = (props)=>{
+  const {children, className} = props;
+
   return (
-    <div>header</div>
+    <div {...props} className={className}>{children}</div>
   )
 };
 
