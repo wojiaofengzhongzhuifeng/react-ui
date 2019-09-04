@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import {scopeClass, classes} from '../helpers/classes';
 import './style.scss';
+import Sider from './Sider';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement>, React.Props<any>{
 
@@ -13,7 +14,7 @@ const Layout: React.FunctionComponent<Props> = (props)=>{
   let hasAside = false;
 
   children && (children as Array<ReactElement>).forEach((item)=>{
-    if(item.props.children === 'Sider'){
+    if(item.type === Sider){
       hasAside = true;
     }
   });
