@@ -18,7 +18,7 @@ const Example = ()=>{
           icon
         </Header>
         <Layout>
-          <Sider>
+          <Sider style={{width: "10%"}}>
             <nav>
               <ul>
                 <li>
