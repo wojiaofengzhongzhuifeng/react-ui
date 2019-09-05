@@ -11,16 +11,21 @@ import Footer from './lib/layout/Footer';
 import Sider from './lib/layout/Sider';
 // @ts-ignore
 import logo from './asset/logo.png';
+import './example.scss';
+
 
 const Example = ()=>{
   return (
     <Router>
-      <Layout style={{marginBottom: "10px"}}>
-        <Header>
-          <img src={logo} alt="" width={64} height={64}/>
+      <Layout style={{marginBottom: "10px"}} className='site-page'>
+        <Header className="site-header">
+          <div className="logo">
+            <img src={logo} alt="" width={64} height={64}/>
+            <span> RAO </span>
+          </div>
         </Header>
-        <Layout>
-          <Sider style={{width: "10%"}}>
+        <Layout style={{height: "85vh"}}>
+          <Sider style={{width: "10%"}} className='site-aside'>
             <nav>
               <ul>
                 <li>
@@ -35,7 +40,7 @@ const Example = ()=>{
               </ul>
             </nav>
           </Sider>
-          <Content>
+          <Content className='site-main'>
             <div>
               <Route path="/Icon" exact component={IconExample} />
               <Route path="/dialog" component={DialogExample} />
@@ -43,7 +48,7 @@ const Example = ()=>{
             </div>
           </Content>
         </Layout>
-        <Footer>Footer</Footer>
+        <Footer className='site-footer'>Footer</Footer>
       </Layout>
 
     </Router>
