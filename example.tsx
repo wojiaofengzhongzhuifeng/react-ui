@@ -9,13 +9,15 @@ import Header from './lib/layout/Header';
 import Content from './lib/layout/Content';
 import Footer from './lib/layout/Footer';
 import Sider from './lib/layout/Sider';
+// @ts-ignore
+import logo from './asset/logo.png';
 
 const Example = ()=>{
   return (
     <Router>
       <Layout style={{marginBottom: "10px"}}>
         <Header>
-          icon
+          <img src={logo} alt="" width={64} height={64}/>
         </Header>
         <Layout>
           <Sider style={{width: "10%"}}>
