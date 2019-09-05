@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import IconExample from './lib/icon/Icon.example';
 import DialogExample from './lib/dialog/Dialog.example';
 import LayoutExample from './lib/layout/Layout.example'
@@ -29,13 +29,13 @@ const Example = ()=>{
             <nav>
               <ul>
                 <li>
-                  <Link to="/Icon">Icon</Link>
+                  <NavLink to="/Icon">Icon</NavLink>
                 </li>
                 <li>
-                  <Link to="/dialog">Dialog</Link>
+                  <NavLink to="/dialog">Dialog</NavLink>
                 </li>
                 <li>
-                  <Link to="/layout">Layout</Link>
+                  <NavLink to="/layout">Layout</NavLink>
                 </li>
               </ul>
             </nav>
