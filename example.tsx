@@ -37,6 +37,9 @@ const Example = ()=>{
                 <li>
                   <NavLink to="/layout">Layout</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/card">Card</NavLink>
+                </li>
               </ul>
             </nav>
           </Sider>
