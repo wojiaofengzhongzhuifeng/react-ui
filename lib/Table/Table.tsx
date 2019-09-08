@@ -28,18 +28,18 @@ const Table: React.FunctionComponent<Props> = (props)=> {
   const dataIndexArray: Array<string> = columns.map((column)=>column.dataIndex);
 
   return (
-    <table>
+    <table className={sc()}>
       <thead>
-        <tr>
-          {columns.map((column)=><th key={column.key}>{column.title}</th>)}
-        </tr>
+      <tr>
+        {columns.map((column)=><th key={column.key}>{column.title}</th>)}
+      </tr>
       </thead>
       <tbody>
-        {dataSource.map((data)=>(
-          <tr key={data.key}>
-            {dataIndexArray.map((dataIndex: string)=><td key={dataIndex}>{data[dataIndex]}</td>)}
-          </tr>)
-        )}
+      {dataSource.map((data)=>(
+        <tr key={data.key}>
+          {dataIndexArray.map((dataIndex: string)=><td key={dataIndex}>{data[dataIndex]}</td>)}
+        </tr>)
+      )}
       </tbody>
     </table>
   )
