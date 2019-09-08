@@ -61,14 +61,6 @@ const IconDemo = () => {
 
       <Card>
         <h2>API</h2>
-        <ul>
-          <li>
-            iconName：通过输入 iconName，可以展示不同的 icon
-          </li>
-          <li>
-            SVGAttributes：本组件继承了 SVG 元素，拥有所有 SVG 元素属性
-          </li>
-        </ul>
         <Table dataSource={IconDataSource} columns={IconColumns} />
       </Card>
     </div>

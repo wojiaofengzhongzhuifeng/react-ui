@@ -25,9 +25,7 @@ console.log(sc);
 const Table: React.FunctionComponent<Props> = (props)=> {
   const {columns, dataSource} = props;
 
-  console.log(columns);
-
-  console.log(dataSource);
+  const dataIndexArray: Array<string> = columns.map((column)=>column.dataIndex);
 
   return (
     <table>
@@ -39,9 +37,7 @@ const Table: React.FunctionComponent<Props> = (props)=> {
       <tbody>
         {dataSource.map((data)=>(
           <tr key={data.key}>
-            {Object.keys(data).map((item, index)=>(
-              <td key={index}>item</td>
-            ))}
+            {dataIndexArray.map((dataIndex: string)=><td key={dataIndex}>{data[dataIndex]}</td>)}
           </tr>)
         )}
       </tbody>
