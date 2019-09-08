@@ -2,6 +2,7 @@ import IconExample1 from './icon.example1';
 import React from 'react';
 import Demo from '../../demo';
 import Card from '../Card/Card';
+import Table from '../Table/Table';
 
 const IconDemo = () => {
   return (
@@ -28,6 +29,7 @@ const IconDemo = () => {
             SVGAttributes：本组件继承了 SVG 元素，拥有所有 SVG 元素属性
           </li>
         </ul>
+        <Table>test</Table>
       </Card>
     </div>
   );
