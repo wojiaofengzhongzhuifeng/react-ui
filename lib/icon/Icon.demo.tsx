@@ -8,6 +8,13 @@ const IconDataSource: Array<DataSource> = [
   {
     key: 1,
     arguments: 'className',
+    description: '为 icon 添加 className',
+    type: 'string',
+    defaultValue: '无',
+  },
+  {
+    key: 2,
+    arguments: 'iconName',
     description: '通过输入 iconName，可以展示不同的 icon',
     type: 'string',
     defaultValue: '无',

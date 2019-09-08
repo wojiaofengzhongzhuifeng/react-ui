@@ -30,7 +30,15 @@ const Table: React.FunctionComponent<Props> = (props)=> {
   console.log(dataSource);
 
   return (
-    <div>table</div>
+    <table>
+      <thead>
+        <tr>
+          {columns.map((column)=><th key={column.key}>{column.title}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   )
 };
 
