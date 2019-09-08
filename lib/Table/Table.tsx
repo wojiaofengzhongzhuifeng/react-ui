@@ -37,6 +37,13 @@ const Table: React.FunctionComponent<Props> = (props)=> {
         </tr>
       </thead>
       <tbody>
+        {dataSource.map((data)=>(
+          <tr key={data.key}>
+            {Object.keys(data).map((item, index)=>(
+              <td key={index}>item</td>
+            ))}
+          </tr>)
+        )}
       </tbody>
     </table>
   )
