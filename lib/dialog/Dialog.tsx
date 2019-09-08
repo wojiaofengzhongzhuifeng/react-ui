@@ -4,6 +4,7 @@ import { scopeClass } from '../helpers/classes';
 import './dialog.scss';
 import { ReactElement, Fragment } from 'react';
 import Icon from '../icon/Icon';
+import Card from '../Card/Card';
 
 interface Props extends React.Props<any>{
   visible: Boolean
@@ -39,7 +40,7 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
 
   const result = visible ? (<div>
     <div className={sc('mask')} onClick={handleClickMask}/>
-    <div className={sc()}>
+    <Card className={sc()}>
       <header className={sc('header')}>
         <Fragment>
           <p>信息</p>
@@ -54,7 +55,7 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
           return React.cloneElement(item, {key})
         })}
       </footer>
-    </div>
+    </Card>
   </div>) : null;
 
   const reactPortal = ReactDOM.createPortal(result, document.querySelector('body') as Element);
