@@ -12,7 +12,8 @@ import Sider from './lib/layout/Sider';
 import logo from './asset/logo.png';
 import './example.scss';
 import IconDemo from './lib/icon/Icon.demo';
-import Button from './lib/Button/Button.demo';
+import ButtonDemo from './lib/Button/Button.demo';
+import TabDemo from './lib/Tab/Tab.demo';
 
 
 const Example = ()=>{
@@ -44,6 +45,9 @@ const Example = ()=>{
                 <li>
                   <NavLink to="/button">button</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/tab">Tab</NavLink>
+                </li>
               </ul>
             </nav>
           </Sider>
@@ -52,7 +56,9 @@ const Example = ()=>{
               <Route path="/Icon" exact component={IconDemo} />
               <Route path="/dialog" component={DialogExample} />
               <Route path="/layout" component={LayoutExample} />
-              <Route path="/button" component={Button} />
+              <Route path="/button" component={ButtonDemo} />
+              <Route path="/tab" component={TabDemo} />
+
             </div>
           </Content>
         </Layout>
