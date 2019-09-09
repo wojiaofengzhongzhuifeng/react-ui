@@ -12,6 +12,7 @@ import Sider from './lib/layout/Sider';
 import logo from './asset/logo.png';
 import './example.scss';
 import IconDemo from './lib/icon/Icon.demo';
+import Button from './lib/Button/Button.demo';
 
 
 const Example = ()=>{
@@ -40,6 +41,9 @@ const Example = ()=>{
                 <li>
                   <NavLink to="/card">Card</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/button">button</NavLink>
+                </li>
               </ul>
             </nav>
           </Sider>
@@ -48,6 +52,7 @@ const Example = ()=>{
               <Route path="/Icon" exact component={IconDemo} />
               <Route path="/dialog" component={DialogExample} />
               <Route path="/layout" component={LayoutExample} />
+              <Route path="/button" component={Button} />
             </div>
           </Content>
         </Layout>
