@@ -6,7 +6,7 @@ const Types = tuple('primary', 'link');
 export type type = (typeof Types)[number];
 
 interface Props extends React.Props<any>{
-  type: type,
+  type?: type,
 }
 
 const sc = scopeClass('rao-button');
@@ -14,9 +14,14 @@ const sc = scopeClass('rao-button');
 console.log(sc());
 
 const Button: React.FunctionComponent<Props> = (props)=> {
+  const {type} = props;
   return (
-    <button>button</button>
+    <button>button{type}</button>
   )
+};
+
+Button.defaultProps = {
+  type: 'primary'
 };
 
 export default Button;
