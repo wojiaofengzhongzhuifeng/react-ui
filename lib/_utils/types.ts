@@ -1,1 +1,1 @@
-export const tuple = (...arg: string[])=>arg;
+export const tuple = <T extends string[]>(...args: T) => args;
