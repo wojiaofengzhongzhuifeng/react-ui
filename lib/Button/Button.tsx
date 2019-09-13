@@ -34,9 +34,23 @@ interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
   const {type} = props;
+
+  let render;
+  if(type === 'link'){
+    render = <a>button123321</a>
+  } else {
+    render = <button>button</button>
+  }
+
   return (
-    <button>button</button>
+    <React.Fragment>
+      {render}
+    </React.Fragment>
   )
+};
+
+Button.defaultProps = {
+  type: 'default'
 };
 
 
