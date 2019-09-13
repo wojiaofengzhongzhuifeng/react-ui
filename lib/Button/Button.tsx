@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { scopeClass } from '../helpers/classes';
+import { classes, scopeClass } from '../helpers/classes';
 import { tuple } from '../_utils/types';
+import './style.scss';
 
 const sc = scopeClass('rao-button');
 
@@ -33,13 +34,22 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
 interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
-  const {type} = props;
+  const {type, className: userClassName} = props;
+
+
+  const buttonClassName: (p1?: string)=>string = (className)=>{
+    return className ?
+              `${classes(sc())} ${classes(sc(className), userClassName)}` :
+              `${classes(sc(className), userClassName)}`
+  };
 
   let render;
   if(type === 'link'){
-    render = <a>button123321</a>
+    render = <a className={buttonClassName('link')}>link</a>
+  } else if(type === 'default'){
+    render = <button className={buttonClassName()}>default</button>
   } else {
-    render = <button>button</button>
+    render = <button className={buttonClassName('primary')}>primary</button>
   }
 
   return (

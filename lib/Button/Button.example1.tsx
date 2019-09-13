@@ -4,8 +4,8 @@ import Button from './Button';
 const ButtonExample1: React.FunctionComponent = ()=>{
   return (
     <div>
-      <Button type='link'>link</Button>
-      <Button type='default'>default</Button>
+      <Button type='link' className={'userLinkClass'}>link</Button>
+      <Button type='default'  className={'userDefailtClass'}>default</Button>
       <Button type='primary'>primary</Button>
     </div>
   )
