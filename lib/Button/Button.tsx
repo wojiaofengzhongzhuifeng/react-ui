@@ -2,6 +2,7 @@ import * as React from 'react';
 import { classes, scopeClass } from '../helpers/classes';
 import { tuple } from '../_utils/types';
 import './style.scss';
+import Icon from '../icon/Icon';
 
 const sc = scopeClass('rao-button');
 
@@ -34,7 +35,7 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
 interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
-  const {type, className: userClassName} = props;
+  const {type, className: userClassName, icon} = props;
 
 
   const buttonClassName: (p1?: string)=>string = (className)=>{
@@ -45,11 +46,26 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
 
   let render;
   if(type === 'link'){
-    render = <a className={buttonClassName('link')}>link</a>
+    render = (
+      <a className={buttonClassName('link')}>
+        <Icon iconName={icon} />
+        link
+      </a>
+    )
   } else if(type === 'default'){
-    render = <button className={buttonClassName()}>default</button>
+    render = (
+      <a className={buttonClassName()}>
+        <Icon iconName={icon} />
+        default
+      </a>
+    );
   } else {
-    render = <button className={buttonClassName('primary')}>primary</button>
+    render = (
+      <a className={buttonClassName('primary')}>
+        <Icon iconName={icon} />
+        primary
+      </a>
+    );
   }
 
   return (
