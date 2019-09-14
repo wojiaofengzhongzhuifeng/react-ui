@@ -1,5 +1,5 @@
 import IconExample1 from './icon.example1';
-import React from 'react';
+import * as React from 'react';
 import Demo from '../../demo';
 import Card from '../Card/Card';
 import Table, {DataSource, Column} from '../Table/Table';

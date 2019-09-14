@@ -19,7 +19,6 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
   type?: ButtonType
   icon?: string
   loading?: boolean
-  className?: string
   href?: string
   target?: string
 }
