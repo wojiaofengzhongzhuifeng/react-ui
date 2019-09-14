@@ -10,31 +10,14 @@ const DialogExample1: React.FunctionComponent = ()=> {
     setVisible(!visible);
   };
 
-  // const test = ()=>{
-  //   const test1 = ()=>{
-  //     console.log(2);
-  //   };
-  //   const closeModalFun = alert({
-  //     text: (
-  //       <div>
-  //         <h1>test123</h1>
-  //         <p>nihaifdsa</p>
-  //         <button onClick={()=>{closeModalFun()}}>关闭这个 modal </button>
-  //       </div>
-  //     ),
-  //     buttons: [
-  //       <button onClick={()=>{console.log(1);}}>test1</button>,
-  //       <button onClick={test1}>test1</button>,
-  //     ]
-  //   })
-  // };
-
   const handleClickCancel = ()=>{
     console.log('点击了取消');
+    setVisible(!visible);
   };
 
   const handleClickConfirm = ()=>{
     console.log('点击了确认');
+    setVisible(!visible);
   };
 
   return (
@@ -43,8 +26,8 @@ const DialogExample1: React.FunctionComponent = ()=> {
         visible={visible}
         buttons={
           [
-            <Button onClick={handleClickCancel}>取消</Button>,
-            <Button onClick={handleClickConfirm}>确认</Button>
+            <Button onClick={handleClickCancel} type='link'>取消</Button>,
+            <Button onClick={handleClickConfirm} type='link'>确认</Button>
           ]
         }
         handleClickXOrMask={()=>{setVisible(!visible)}}

@@ -90,6 +90,7 @@ const DialogDemo = () => {
 
       <Card>
         <h2>使用示例1</h2>
+        <p>通过写 JSX 的方式，生成 Dialog </p>
         <Demo code={require('!!raw-loader!./Dialog.example1.tsx').default}>
           <DialogExample1/>
         </Demo>
