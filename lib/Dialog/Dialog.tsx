@@ -9,22 +9,16 @@ import Card from '../Card/Card';
 interface Props extends React.Props<any>{
   visible: Boolean
   buttons?: Array<ReactElement>
-  handleClickXOrMask: React.MouseEventHandler
+  handleClickXOrMask?: React.MouseEventHandler //TODO: 不需要这个属性
   closeOnClickMask?: Boolean
   title?: string
 }
 
-interface AlertProps {
-  closeOnClickMask?: boolean
-  buttons?: Array<ReactElement>
-  text: string | ReactElement
-}
+type DialogFunProps = Omit<Props, 'visible'>
 
 const sc = scopeClass('rao-dialog');
 
 console.log(sc('mask'));
-console.log(sc());
-
 
 const Dialog: React.FunctionComponent<Props> = (props)=> {
   const {visible, children, buttons, handleClickXOrMask, closeOnClickMask, title} = props;
@@ -70,7 +64,7 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
 
 
 
-export const DialogFun = (options: AlertProps)=>{
+export const DialogFun = (options: DialogFunProps)=>{
   const div = document.createElement('div');
   document.body.appendChild(div);
 
@@ -97,7 +91,7 @@ export const DialogFun = (options: AlertProps)=>{
         closeModal();
       }}
     >
-      {options.text}
+      {options.children}
     </Dialog>
   );
 

@@ -4,13 +4,23 @@ import Button from '../Button';
 
 
 const DialogExample2: React.FunctionComponent = ()=> {
-
   const showDialog = ()=>{
-    console.log('showDialog');
-    DialogFun({
-      text: "动态生成"
+    const handleClickClose = ()=>{
+      closeDialogFun();
+    };
+    const closeDialogFun = DialogFun({
+      children: (
+        <div>
+          jfdklsj
+          jfkdla
+          <Button onClick={handleClickClose} type='link'>关闭</Button>
+        </div>
+      ),
     })
   };
+
+
+
 
   return (
     <div>
