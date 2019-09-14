@@ -49,21 +49,21 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
   if(type === 'link'){
     render = (
       <a className={buttonClassName('link')} onClick={handleClickEvent}>
-        {loading ? <Icon iconName='loading'/> : <Icon iconName={icon}/>}
+        {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         link
       </a>
     )
   } else if(type === 'default'){
     render = (
       <button className={buttonClassName()}  onClick={handleClickEvent}>
-        {loading ? <Icon iconName='loading'/> : <Icon iconName={icon}/>}
+        {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         default
       </button>
     );
   } else {
     render = (
       <button className={buttonClassName('primary')} onClick={handleClickEvent}>
-        {loading ? <Icon iconName='loading'/> : <Icon iconName={icon}/>}
+        {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         <Icon iconName={icon} />
         primary
       </button>
