@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { scopeClass } from '../helpers/classes';
 import './dialog.scss';
 import { ReactElement, Fragment } from 'react';
