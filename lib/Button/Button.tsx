@@ -20,7 +20,6 @@ interface NativeButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
   loading?: boolean
   className?: string
   htmlType?: HTMLType
-  onClick?: React.MouseEventHandler
 }
 
 interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'>{
@@ -29,14 +28,12 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
   loading?: boolean
   className?: string
   href?: string
-  onClick?: React.MouseEventHandler
 }
 
 interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
-  const {type, className: userClassName, icon} = props;
-
+  const {type, className: userClassName, icon, loading, onClick} = props;
 
   const buttonClassName: (p1?: string)=>string = (className)=>{
     return className ?
@@ -44,27 +41,32 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
               `${classes(sc(className), userClassName)}`
   };
 
+  const handleClickEvent: React.MouseEventHandler = (e)=>{
+    onClick && onClick(e);
+  };
+
   let render;
   if(type === 'link'){
     render = (
-      <a className={buttonClassName('link')}>
-        <Icon iconName={icon} />
+      <a className={buttonClassName('link')} onClick={handleClickEvent}>
+        {loading ? <Icon iconName='loading'/> : <Icon iconName={icon}/>}
         link
       </a>
     )
   } else if(type === 'default'){
     render = (
-      <a className={buttonClassName()}>
-        <Icon iconName={icon} />
+      <button className={buttonClassName()}  onClick={handleClickEvent}>
+        {loading ? <Icon iconName='loading'/> : <Icon iconName={icon}/>}
         default
-      </a>
+      </button>
     );
   } else {
     render = (
-      <a className={buttonClassName('primary')}>
+      <button className={buttonClassName('primary')} onClick={handleClickEvent}>
+        {loading ? <Icon iconName='loading'/> : <Icon iconName={icon}/>}
         <Icon iconName={icon} />
         primary
-      </a>
+      </button>
     );
   }
 
@@ -76,7 +78,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
 };
 
 Button.defaultProps = {
-  type: 'default'
+  type: 'default',
+  loading: false
 };
 
 
