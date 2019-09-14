@@ -26,7 +26,7 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
 interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
-  const {type, className: userClassName, icon, loading, onClick, ...reset} = props;
+  const {type, className: userClassName, icon, loading, onClick, children,...reset} = props;
 
   const buttonClassName: (p1?: string)=>string = (className)=>{
     return className ?
@@ -43,14 +43,14 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
     render = (
       <a className={buttonClassName('link')} onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
-        link
+        {children}
       </a>
     )
   } else if(type === 'default'){
     render = (
       <button className={buttonClassName()}  onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
-        default
+        {children}
       </button>
     );
   } else {
@@ -58,7 +58,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
       <button className={buttonClassName('primary')} onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         <Icon iconName={icon} />
-        primary
+        {children}
       </button>
     );
   }
