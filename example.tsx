@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import DialogExample from './lib/dialog/Dialog.example';
 import LayoutExample from './lib/layout/Layout.example'
 import Layout from './lib/layout/Layout';
 import Header from './lib/layout/Header';
@@ -14,6 +13,7 @@ import './example.scss';
 import IconDemo from './lib/icon/Icon.demo';
 import ButtonDemo from './lib/Button/Button.demo';
 import TabDemo from './lib/Tab/Tab.demo';
+import DialogDemo from './lib/Dialog/Dialog.demo';
 
 
 const Example = ()=>{
@@ -54,7 +54,7 @@ const Example = ()=>{
           <Content className='site-main'>
             <div>
               <Route path="/Icon" exact component={IconDemo} />
-              <Route path="/dialog" component={DialogExample} />
+              <Route path="/dialog" component={DialogDemo} />
               <Route path="/layout" component={LayoutExample} />
               <Route path="/button" component={ButtonDemo} />
               <Route path="/tab" component={TabDemo} />

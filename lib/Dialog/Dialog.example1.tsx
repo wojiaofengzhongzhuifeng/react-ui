@@ -2,7 +2,7 @@ import * as React from 'react';
 import Dialog, {alert} from './Dialog';
 import { useState } from 'react';
 
-const DialogExample: React.FunctionComponent = ()=> {
+const DialogExample1: React.FunctionComponent = ()=> {
   const [visible, setVisible] = useState<Boolean>(false);
 
   const handleClickButton = ()=>{
@@ -45,9 +45,8 @@ const DialogExample: React.FunctionComponent = ()=> {
         hi this is me
       </Dialog>
       <button onClick={handleClickButton}>打开 dialog</button>
-      <button onClick={test}>test</button>
     </div>
   );
 };
 
-export default DialogExample;
+export default DialogExample1;
