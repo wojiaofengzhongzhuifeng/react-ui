@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import Demo from '../../demo';
 import ButtonExample1 from './Button.example1';
 import Table, { Column, DataSource } from '../Table/Table';
+import Button from './Button';
 
 const ButtonDataSource: Array<DataSource> = [
   {
@@ -97,6 +98,11 @@ const ButtonDemo = () => {
       <Card>
         <h2>API</h2>
         <Table dataSource={ButtonDataSource} columns={ButtonColumns} />
+      </Card>
+
+      <Card>
+        <h2>总结</h2>
+        <Button type='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/react轮子/11Button.md' target='_blank'>连接</Button>
       </Card>
     </div>
   );
