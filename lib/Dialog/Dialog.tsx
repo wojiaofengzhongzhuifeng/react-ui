@@ -11,6 +11,7 @@ interface Props extends React.Props<any>{
   buttons?: Array<ReactElement>
   handleClickXOrMask: React.MouseEventHandler
   closeOnClickMask?: Boolean
+  title?: string
 }
 
 interface AlertProps {
@@ -26,7 +27,7 @@ console.log(sc());
 
 
 const Dialog: React.FunctionComponent<Props> = (props)=> {
-  const {visible, children, buttons, handleClickXOrMask, closeOnClickMask} = props;
+  const {visible, children, buttons, handleClickXOrMask, closeOnClickMask, title} = props;
 
   const handleClickIcon:React.MouseEventHandler = (e)=>{
     handleClickXOrMask(e);
@@ -40,10 +41,10 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
 
   const result = visible ? (<div>
     <div className={sc('mask')} onClick={handleClickMask}/>
-    <Card className={sc()}>
+    <Card className={sc()} style={{padding: 0}}>
       <header className={sc('header')}>
         <Fragment>
-          <p>信息</p>
+          <h2>{title ? title : '信息'}</h2>
         </Fragment>
         <Icon iconName='close' onClick={handleClickIcon}/>
       </header>
