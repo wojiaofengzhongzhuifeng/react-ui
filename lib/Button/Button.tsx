@@ -13,7 +13,6 @@ interface NativeButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
   type?: ButtonType
   icon?: string
   loading?: boolean
-  className?: string
 }
 
 interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'>{
