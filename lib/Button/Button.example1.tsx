@@ -31,6 +31,8 @@ const ButtonExample1: React.FunctionComponent = ()=>{
         icon={"apple"}
         onClick={handleClickLink}
         loading={useLinkLoading}
+        href={"http://www.baidu.com"}
+        target='_blank'
       >
         link
       </Button>

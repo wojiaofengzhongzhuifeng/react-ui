@@ -28,12 +28,13 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
   loading?: boolean
   className?: string
   href?: string
+  target?: string
 }
 
 interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
-  const {type, className: userClassName, icon, loading, onClick} = props;
+  const {type, className: userClassName, icon, loading, onClick, ...reset} = props;
 
   const buttonClassName: (p1?: string)=>string = (className)=>{
     return className ?
@@ -48,21 +49,21 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
   let render;
   if(type === 'link'){
     render = (
-      <a className={buttonClassName('link')} onClick={handleClickEvent}>
+      <a className={buttonClassName('link')} onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         link
       </a>
     )
   } else if(type === 'default'){
     render = (
-      <button className={buttonClassName()}  onClick={handleClickEvent}>
+      <button className={buttonClassName()}  onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         default
       </button>
     );
   } else {
     render = (
-      <button className={buttonClassName('primary')} onClick={handleClickEvent}>
+      <button className={buttonClassName('primary')} onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         <Icon iconName={icon} />
         primary
