@@ -4,6 +4,7 @@ import Demo from '../../demo';
 import Table, { Column, DataSource } from '../Table/Table';
 import DialogExample1 from './Dialog.example1';
 import Button from '../Button';
+import DialogExample2 from './Dialog.example2';
 
 const dataSource: Array<DataSource> = [
   {
@@ -93,6 +94,14 @@ const DialogDemo = () => {
         <p>通过写 JSX 的方式，生成 Dialog </p>
         <Demo code={require('!!raw-loader!./Dialog.example1.tsx').default}>
           <DialogExample1/>
+        </Demo>
+      </Card>
+
+      <Card>
+        <h2>使用示例2</h2>
+        <p>通过写函数调用的方式，生成 Dialog </p>
+        <Demo code={require('!!raw-loader!./Dialog.example2.tsx').default}>
+          <DialogExample2/>
         </Demo>
       </Card>
 

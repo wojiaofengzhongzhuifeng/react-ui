@@ -70,7 +70,7 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
 
 
 
-export const alert = (options: AlertProps)=>{
+export const DialogFun = (options: AlertProps)=>{
   const div = document.createElement('div');
   document.body.appendChild(div);
 
