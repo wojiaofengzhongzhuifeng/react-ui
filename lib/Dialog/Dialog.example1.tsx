@@ -24,7 +24,7 @@ const DialogExample1: React.FunctionComponent = ()=> {
     <div>
       <Dialog
         visible={visible}
-        buttons={
+        footer={
           [
             <Button onClick={handleClickCancel} type='link'>取消</Button>,
             <Button onClick={handleClickConfirm} type='link'>确认</Button>

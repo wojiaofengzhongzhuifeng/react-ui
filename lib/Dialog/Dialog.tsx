@@ -8,7 +8,7 @@ import Card from '../Card/Card';
 
 interface Props extends React.Props<any>{
   visible: Boolean
-  buttons?: Array<ReactElement>
+  footer?: Array<ReactElement>
   handleClickXOrMask?: React.MouseEventHandler //TODO: 不需要这个属性
   closeOnClickMask?: Boolean
   title?: string
@@ -21,7 +21,7 @@ const sc = scopeClass('rao-dialog');
 console.log(sc('mask'));
 
 const Dialog: React.FunctionComponent<Props> = (props)=> {
-  const {visible, children, buttons, handleClickXOrMask, closeOnClickMask, title} = props;
+  const {visible, children, footer, handleClickXOrMask, closeOnClickMask, title} = props;
 
   const handleClickIcon:React.MouseEventHandler = (e)=>{
     handleClickXOrMask(e);
@@ -46,7 +46,7 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
         {children}
       </main>
       <footer className={sc('footer')}>
-        {buttons && buttons.map((item, key)=>{
+        {footer && footer.map((item, key)=>{
           return React.cloneElement(item, {key})
         })}
       </footer>
@@ -75,7 +75,7 @@ export const DialogFun = (options: DialogFunProps)=>{
   };
 
   // 为用户 footer 添加点击事件，事件执行「关闭modal」操作 + 用户想要执行的代码。
-  const addClickHandleButtons = options.buttons && options.buttons.map((item)=>{
+  const addClickHandleButtons = options.footer && options.footer.map((item)=>{
     return React.cloneElement(item, {onClick: ()=>{
         item.props.onClick();
         closeModal();
@@ -85,7 +85,7 @@ export const DialogFun = (options: DialogFunProps)=>{
   const ReactComponent = (
     <Dialog
       visible={true}
-      buttons={addClickHandleButtons}
+      footer={addClickHandleButtons}
       closeOnClickMask={options.closeOnClickMask}
       handleClickXOrMask={()=>{
         closeModal();
@@ -98,6 +98,10 @@ export const DialogFun = (options: DialogFunProps)=>{
   ReactDOM.render(ReactComponent, div);
 
   return closeModal;
+};
+
+Dialog.defaultProps = {
+  closeOnClickMask: false,
 };
 
 export default Dialog;
