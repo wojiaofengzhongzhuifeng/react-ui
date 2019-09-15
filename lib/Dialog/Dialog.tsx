@@ -24,12 +24,12 @@ const Dialog: React.FunctionComponent<Props> = (props)=> {
   const {visible, children, footer, handleClickXOrMask, closeOnClickMask, title} = props;
 
   const handleClickIcon:React.MouseEventHandler = (e)=>{
-    handleClickXOrMask(e);
+    handleClickXOrMask && handleClickXOrMask(e);
   };
 
   const handleClickMask: React.MouseEventHandler = (e)=>{
     if(closeOnClickMask){
-      handleClickXOrMask(e);
+      handleClickXOrMask && handleClickXOrMask(e);
     }
   };
 
