@@ -32,7 +32,7 @@ function insertStringToExample(tagString, insertString, fn){
 			const exampleString = stringArray.join("\n");
 			fs.writeFile(`${__dirname}/example.tsx`, exampleString, (err)=>{
 				console.log(err);
-				fn();
+				fn && fn();
 			})
 		}
 	});
@@ -42,20 +42,19 @@ insertStringToExample(
 	'add demo 1',
 	`import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`,
 	()=>{
-		console.log(1);
-		// insertStringToExample(
-		// 	'add demo 2',
-		// 	`
-		// 		<li>
-		// 			<NavLink to="/${componentName}">${componentName}</NavLink>
-		// 		</li>
-		// 	`,
-		// 	()=>{
-		// 		insertStringToExample('add demo 3', `
-    //             <Route path="/Icon" exact component={${componentName}Demo} />
-		// 		`);
-		// 	}
-		// );
+		insertStringToExample(
+			'add demo 2',
+			`
+				<li>
+					<NavLink to="/${componentName}">${componentName}</NavLink>
+				</li>
+			`,
+			()=>{
+				insertStringToExample('add demo 3', `
+                <Route path="/Icon" exact component={${componentName}Demo} />
+				`);
+			}
+		);
 	}
 );
 
