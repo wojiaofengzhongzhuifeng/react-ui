@@ -44,11 +44,11 @@ insertStringToExample(
 	()=>{
 		insertStringToExample(
 			'add demo 2',
-			`<li>
-                  <NavLink to="/Icon">Icon</NavLink>
+			`                <li>
+                  <NavLink to="/${componentName}">${componentName}</NavLink>
                 </li>`,
 			()=>{
-				insertStringToExample('add demo 3', `<Route path="/${componentName}" exact component={${componentName}Demo} />`);
+				insertStringToExample('add demo 3', `              <Route path="/${componentName}" exact component={${componentName}Demo} />`);
 			}
 		);
 	}
