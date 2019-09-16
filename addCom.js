@@ -8,7 +8,7 @@ const componentName = arguments[0];
 const mkdirPath = path.resolve(__dirname, `./lib/${componentName}`);
 
 
-const buttonDemoString = `
+const componentDemoString = `
 import * as React from 'react';
 import Card from '../Card/Card';
 import Demo from '../../demo';
@@ -77,13 +77,37 @@ const ${componentName}Demo = () => {
 };
 
 export default ${componentName}Demo;
-`
+`;
+
+const componentExampleString = `
+import * as React from 'react';
+import ${componentName} from './${componentName}';
+import { useState } from 'react';
+
+const ${componentName}Example1: React.FunctionComponent = ()=>{
+  return (
+    <div>
+			<${componentName} />
+    </div>
+  )
+};
+
+export default ${componentName}Example1
+
+`;
 
 // 创建 Tab 文档
 fs.mkdir(mkdirPath, null, (err)=>{
 	if(!err){
-		fs.writeFile(`${mkdirPath}/${componentName}.demo.tsx`, buttonDemoString, (err)=>{
-			console.log(err);
+		// 创建组件文档
+		fs.writeFile(`${mkdirPath}/${componentName}.demo.tsx`, componentDemoString, (err)=>{
+			if(!err){
+				fs.writeFile(`${mkdirPath}/${componentName}.example1.tsx`, componentExampleString, (err)=>{
+					if(!err){
+
+					}
+				})
+			}
 		})
 	}
 });
