@@ -42,19 +42,20 @@ insertStringToExample(
 	'add demo 1',
 	`import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`,
 	()=>{
-		insertStringToExample(
-			'add demo 2',
-			`
-				<li>
-					<NavLink to="/${componentName}">${componentName}</NavLink>
-				</li>
-			`,
-			()=>{
-				insertStringToExample('add demo 3', `
-                <Route path="/Icon" exact component={${componentName}Demo} />
-				`);
-			}
-		);
+		console.log(1);
+		// insertStringToExample(
+		// 	'add demo 2',
+		// 	`
+		// 		<li>
+		// 			<NavLink to="/${componentName}">${componentName}</NavLink>
+		// 		</li>
+		// 	`,
+		// 	()=>{
+		// 		insertStringToExample('add demo 3', `
+    //             <Route path="/Icon" exact component={${componentName}Demo} />
+		// 		`);
+		// 	}
+		// );
 	}
 );
 
