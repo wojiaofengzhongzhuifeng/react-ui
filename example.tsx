@@ -10,6 +10,8 @@ import Sider from './lib/layout/Sider';
 // @ts-ignore
 import logo from './asset/logo.png';
 import './example.scss';
+
+// add demo
 import IconDemo from './lib/icon/Icon.demo';
 import ButtonDemo from './lib/Button/Button.demo';
 import TabDemo from './lib/Tab/Tab.demo';
