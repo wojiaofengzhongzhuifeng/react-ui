@@ -28,7 +28,10 @@ fs.readFile(`${__dirname}/example.tsx`, {
 		const stringArray = data.split('\n');
 		let searchIndex = getSearchIndex(stringArray, 'add demo 1');
 		stringArray.splice(searchIndex + 1, 0, `import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`);
-		console.log(stringArray);
+		const exampleString = stringArray.join("\n");
+		fs.writeFile(`${__dirname}/example.tsx`, exampleString, (err)=>{
+			console.log(err);
+		})
 	}
 });
 
@@ -145,8 +148,6 @@ import ${componentName} from './${componentName}';
 
 export default ${componentName};
 `;
-
-fs.readFile('');
 
 // 创建 Tab 文档
 fs.mkdir(mkdirPath, null, (err)=>{
