@@ -84,7 +84,6 @@ export default ${componentName}Demo;
 const componentExampleString = `
 import * as React from 'react';
 import ${componentName} from './${componentName}';
-import { useState } from 'react';
 
 const ${componentName}Example1: React.FunctionComponent = ()=>{
   return (
@@ -105,13 +104,21 @@ import './style.scss';
 
 const sc = scopeClass('rao-${lowerComponentName}');
 
-interface ${componentName}Props {};
+console.log(sc);
 
-const ${componentName}: React.FunctionComponent<ButtonProps> = (props)=> {
+interface ${componentName}Props {}
+
+const ${componentName}: React.FunctionComponent<${componentName}Props> = (props)=> {
   return (
 		<div>${componentName}</div>
   )
 };
+
+export default ${componentName};
+`;
+
+const indexString = `
+import ${componentName} from './${componentName}';
 
 export default ${componentName};
 `;
@@ -128,7 +135,14 @@ fs.mkdir(mkdirPath, null, (err)=>{
 						// 创建组件代码
 						fs.writeFile(`${mkdirPath}/${componentName}.tsx`, componentString, (err)=>{
 							if(!err){
-
+								fs.writeFile(`${mkdirPath}/index.tsx`, indexString, (err)=>{
+									if(!err){
+										fs.writeFile(`${mkdirPath}/style.scss`, "", (err)=>{
+											if(!err){
+											}
+										})
+									}
+								})
 							}
 						})
 					}
