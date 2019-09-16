@@ -46,7 +46,7 @@ insertStringToExample('add demo 2', `
 `);
 
 insertStringToExample('add demo 3', `
-  <Route path="/${componentName}" exact component={${componentName}Demo} />
+                <Route path="/Icon" exact component={IconDemo} />
 `);
 
 
