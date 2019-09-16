@@ -20,7 +20,7 @@ function getSearchIndex(array, search){
 	return -1
 }
 
-function insertStringToExample(tagString, insertString){
+function insertStringToExample(tagString, insertString, fn){
 	// 写入 example
 	fs.readFile(`${__dirname}/example.tsx`, {
 		encoding: 'utf-8'
@@ -32,22 +32,35 @@ function insertStringToExample(tagString, insertString){
 			const exampleString = stringArray.join("\n");
 			fs.writeFile(`${__dirname}/example.tsx`, exampleString, (err)=>{
 				console.log(err);
+				fn();
 			})
 		}
 	});
 }
 
-insertStringToExample('add demo 1', `import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`);
+insertStringToExample(
+	'add demo 1',
+	`import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`,
+	()=>{
+		insertStringToExample(
+			'add demo 2',
+			`
+				<li>
+					<NavLink to="/${componentName}">${componentName}</NavLink>
+				</li>
+			`,
+			()=>{
+				insertStringToExample('add demo 3', `
+                <Route path="/Icon" exact component={${componentName}Demo} />
+				`);
+			}
+		);
+	}
+);
 
-insertStringToExample('add demo 2', `
-	<li>
-		<NavLink to="/${componentName}">${componentName}</NavLink>
-	</li>
-`);
 
-insertStringToExample('add demo 3', `
-                <Route path="/Icon" exact component={IconDemo} />
-`);
+
+
 
 
 
