@@ -71,7 +71,6 @@ import Card from '../Card/Card';
 import Demo from '../../demo';
 import ${componentName}Example1 from './${componentName}.example1';
 import Table, { Column, DataSource } from '../Table/Table';
-import ${componentName} from './${componentName}';
 
 const dataSource: Array<DataSource> = [
   {
