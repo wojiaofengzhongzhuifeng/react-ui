@@ -12,6 +12,7 @@ import logo from './asset/logo.png';
 import './example.scss';
 
 // add demo 1
+import InputDemo from './lib/Input/Input.demo';
 import IconDemo from './lib/icon/Icon.demo';
 import ButtonDemo from './lib/Button/Button.demo';
 import TabDemo from './lib/Tab/Tab.demo';
@@ -33,6 +34,9 @@ const Example = ()=>{
             <nav>
               <ul>
                 {/*add demo 2*/}
+                <li>
+                  <NavLink to="/Input">Input</NavLink>
+                </li>
                 <li>
                   <NavLink to="/Icon">Icon</NavLink>
                 </li>
@@ -57,6 +61,7 @@ const Example = ()=>{
           <Content className='site-main'>
             <div>
               {/*add demo 3*/}
+              <Route path="/Input" exact component={InputDemo} />
               <Route path="/Icon" exact component={IconDemo} />
               <Route path="/dialog" component={DialogDemo} />
               <Route path="/layout" component={LayoutExample} />
