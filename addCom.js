@@ -20,20 +20,40 @@ function getSearchIndex(array, search){
 	return -1
 }
 
-// 写入 example
-fs.readFile(`${__dirname}/example.tsx`, {
-	encoding: 'utf-8'
-}, (err, data)=>{
-	if(!err){
-		const stringArray = data.split('\n');
-		let searchIndex = getSearchIndex(stringArray, 'add demo 1');
-		stringArray.splice(searchIndex + 1, 0, `import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`);
-		const exampleString = stringArray.join("\n");
-		fs.writeFile(`${__dirname}/example.tsx`, exampleString, (err)=>{
-			console.log(err);
-		})
-	}
-});
+function insertStringToExample(tagString, insertString){
+	// 写入 example
+	fs.readFile(`${__dirname}/example.tsx`, {
+		encoding: 'utf-8'
+	}, (err, data)=>{
+		if(!err){
+			const stringArray = data.split('\n');
+			let searchIndex = getSearchIndex(stringArray, tagString);
+			stringArray.splice(searchIndex + 1, 0, insertString);
+			const exampleString = stringArray.join("\n");
+			fs.writeFile(`${__dirname}/example.tsx`, exampleString, (err)=>{
+				console.log(err);
+			})
+		}
+	});
+}
+
+insertStringToExample('add demo 1', `import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`);
+
+insertStringToExample('add demo 2', `
+	<li>
+		<NavLink to="/${componentName}">${componentName}</NavLink>
+	</li>
+`);
+
+insertStringToExample('add demo 3', `
+  <Route path="/${componentName}" exact component={${componentName}Demo} />
+`);
+
+
+
+
+
+
 
 
 const componentDemoString = `
