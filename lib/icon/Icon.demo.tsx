@@ -14,10 +14,10 @@ const IconDataSource: Array<DataSource> = [
   },
   {
     key: 2,
-    arguments: 'iconName',
-    description: '通过输入 iconName，可以展示不同的 icon',
-    type: 'string',
-    defaultValue: '无',
+    arguments: '...reset',
+    description: '这个组件继承自 React.SVGAttributes<SVGElement>',
+    type: '',
+    defaultValue: '',
   }
 ];
 
