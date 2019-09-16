@@ -9,6 +9,29 @@ const lowerComponentName = componentName.replace(componentName[0],componentName[
 
 const mkdirPath = path.resolve(__dirname, `./lib/${componentName}`);
 
+function getSearchIndex(array, search){
+	for(let i=0;i<=array.length - 1;i++){
+		const item = array[i]
+		if(item.includes(search)){
+			return i;
+			break
+		}
+	}
+	return -1
+}
+
+// 写入 example
+fs.readFile(`${__dirname}/example.tsx`, {
+	encoding: 'utf-8'
+}, (err, data)=>{
+	if(!err){
+		const stringArray = data.split('\n');
+		let searchIndex = getSearchIndex(stringArray, 'add demo 1');
+		stringArray.splice(searchIndex + 1, 0, `import ${componentName}Demo from './lib/${componentName}/${componentName}.demo';`);
+		console.log(stringArray);
+	}
+});
+
 
 const componentDemoString = `
 import * as React from 'react';
@@ -122,6 +145,8 @@ import ${componentName} from './${componentName}';
 
 export default ${componentName};
 `;
+
+fs.readFile('');
 
 // 创建 Tab 文档
 fs.mkdir(mkdirPath, null, (err)=>{
