@@ -4,6 +4,8 @@ var fs = require('fs');
 var path = require('path');
 
 const componentName = arguments[0];
+const lowerComponentName = componentName.replace(componentName[0],componentName[0].toLowerCase());
+
 
 const mkdirPath = path.resolve(__dirname, `./lib/${componentName}`);
 
@@ -96,15 +98,39 @@ export default ${componentName}Example1
 
 `;
 
+const componentString = `
+import * as React from 'react';
+import { classes, scopeClass } from '../helpers/classes';
+import './style.scss';
+
+const sc = scopeClass('rao-${lowerComponentName}');
+
+interface ${componentName}Props {};
+
+const ${componentName}: React.FunctionComponent<ButtonProps> = (props)=> {
+  return (
+		<div>${componentName}</div>
+  )
+};
+
+export default ${componentName};
+`;
+
 // 创建 Tab 文档
 fs.mkdir(mkdirPath, null, (err)=>{
 	if(!err){
 		// 创建组件文档
 		fs.writeFile(`${mkdirPath}/${componentName}.demo.tsx`, componentDemoString, (err)=>{
+			// 创建实例代码
 			if(!err){
 				fs.writeFile(`${mkdirPath}/${componentName}.example1.tsx`, componentExampleString, (err)=>{
 					if(!err){
+						// 创建组件代码
+						fs.writeFile(`${mkdirPath}/${componentName}.tsx`, componentString, (err)=>{
+							if(!err){
 
+							}
+						})
 					}
 				})
 			}
