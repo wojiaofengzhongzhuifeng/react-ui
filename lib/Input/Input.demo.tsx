@@ -8,9 +8,16 @@ import Table, { Column, DataSource } from '../Table/Table';
 const dataSource: Array<DataSource> = [
   {
     key: 1,
-    arguments: 'type',
-    description: '指定 button 的类型，根据类型，样式不同，可选类型有「\'default\', \'primary\', \'link\'」',
-    type: 'string',
+    arguments: 'addOnAfter',
+    description: '带标签的 input，设置后置标签',
+    type: 'ReactNode',
+    defaultValue: '无',
+  },
+  {
+    key: 2,
+    arguments: 'addOnBefore',
+    description: '带标签的 input，设置前置标签',
+    type: 'ReactNode',
     defaultValue: '无',
   }
 ];
