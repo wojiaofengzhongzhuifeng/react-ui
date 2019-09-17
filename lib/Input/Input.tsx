@@ -13,7 +13,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
-  const {className, addOnBefore, addOnAfter,...reset} = props;
+  const {className, addOnBefore, addOnAfter,width, ...reset} = props;
 
   const renderBefore = ()=>{
     if(addOnBefore){
@@ -36,7 +36,7 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
   };
 
   return (
-		<span className={sc('wrapper')}>
+		<span className={sc('wrapper')} style={{width}}>
       {renderBefore()}
       <input className={classes(sc(), className)} {...reset}/>
       {renderAfter()}

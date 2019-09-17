@@ -11,6 +11,7 @@ const InputExample1: React.FunctionComponent = ()=>{
 			  placeholder={'test123321'}
         addOnBefore="Http://"
         addOnAfter={<Icon iconName='api'/>}
+        width={200}
       />
     </div>
   )
