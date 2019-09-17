@@ -10,10 +10,12 @@ console.log(sc);
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   addOnAfter?: React.ReactNode
   addOnBefore?: React.ReactNode
+  value?: string
+  onChange?: React.ChangeEventHandler
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
-  const {className, addOnBefore, addOnAfter,width, ...reset} = props;
+  const {className, addOnBefore, addOnAfter,width,onChange,...reset} = props;
 
   const renderBefore = ()=>{
     if(addOnBefore){
@@ -35,10 +37,14 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    onChange && onChange(e);
+  };
+
   return (
 		<span className={sc('wrapper')} style={{width}}>
       {renderBefore()}
-      <input className={classes(sc(), className)} {...reset}/>
+      <input className={classes(sc(), className)} onChange={handleInputChange} {...reset}/>
       {renderAfter()}
     </span>
   )
