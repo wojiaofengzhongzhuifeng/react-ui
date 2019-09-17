@@ -18,7 +18,7 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
   const renderBefore = ()=>{
     if(addOnBefore){
       return (
-        <span>{addOnBefore}</span>
+        <span className={sc('addon')}>{addOnBefore}</span>
       )
     } else {
       return null
@@ -28,7 +28,7 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
   const renderAfter = ()=>{
     if(addOnAfter){
       return (
-        <span>{addOnAfter}</span>
+        <span  className={sc('addon')}>{addOnAfter}</span>
       )
     } else {
       return null
@@ -36,11 +36,11 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
   };
 
   return (
-		<React.Fragment>
+		<span className={sc('wrapper')}>
       {renderBefore()}
       <input className={classes(sc(), className)} {...reset}/>
       {renderAfter()}
-    </React.Fragment>
+    </span>
   )
 };
 
