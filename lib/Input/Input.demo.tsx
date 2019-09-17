@@ -19,6 +19,20 @@ const dataSource: Array<DataSource> = [
     description: '带标签的 input，设置前置标签',
     type: 'ReactNode',
     defaultValue: '无',
+  },
+  {
+    key: 3,
+    arguments: 'value',
+    description: '设置 input 的值',
+    type: 'string',
+    defaultValue: '无',
+  },
+  {
+    key: 4,
+    arguments: 'onChange',
+    description: '当 input 改变触发的回调',
+    type: 'React.ChangeEventHandler',
+    defaultValue: '无',
   }
 ];
 
