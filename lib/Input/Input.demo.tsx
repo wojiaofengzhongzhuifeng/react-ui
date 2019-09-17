@@ -33,6 +33,13 @@ const dataSource: Array<DataSource> = [
     description: '当 input 改变触发的回调',
     type: 'React.ChangeEventHandler',
     defaultValue: '无',
+  },
+  {
+    key: 5,
+    arguments: 'disabled',
+    description: '控制 input 是否能使用',
+    type: 'boolean',
+    defaultValue: 'false',
   }
 ];
 
