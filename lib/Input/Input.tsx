@@ -7,11 +7,16 @@ const sc = scopeClass('rao-input');
 
 console.log(sc);
 
-interface InputProps {}
+interface InputProps extends React.HTMLAttributes<InputProps>{
+  defaultValue: string
+  disabled: boolean
+  value: string
+  onPressEnter: React.KeyboardEventHandler
+}
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
   return (
-		<div>Input</div>
+		<input />
   )
 };
 
