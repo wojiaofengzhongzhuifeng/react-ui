@@ -11,8 +11,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
+  const {className, ...reset} = props;
   return (
-		<input />
+		<input className={classes(sc(), className)} {...reset}/>
   )
 };
 

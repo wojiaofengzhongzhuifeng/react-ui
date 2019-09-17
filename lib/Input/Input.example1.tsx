@@ -5,7 +5,7 @@ import Input from './Input';
 const InputExample1: React.FunctionComponent = ()=>{
   return (
     <div>
-			<Input />
+			<Input className='test' placeholder={'test123321'}/>
     </div>
   )
 };
