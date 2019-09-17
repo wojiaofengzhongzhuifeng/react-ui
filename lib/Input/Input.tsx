@@ -8,12 +8,39 @@ const sc = scopeClass('rao-input');
 console.log(sc);
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
+  addOnAfter?: React.ReactNode
+  addOnBefore?: React.ReactNode
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
-  const {className, ...reset} = props;
+  const {className, addOnBefore, addOnAfter,...reset} = props;
+
+  const renderBefore = ()=>{
+    if(addOnBefore){
+      return (
+        <span>{addOnBefore}</span>
+      )
+    } else {
+      return null
+    }
+  };
+
+  const renderAfter = ()=>{
+    if(addOnAfter){
+      return (
+        <span>{addOnAfter}</span>
+      )
+    } else {
+      return null
+    }
+  };
+
   return (
-		<input className={classes(sc(), className)} {...reset}/>
+		<React.Fragment>
+      {renderBefore()}
+      <input className={classes(sc(), className)} {...reset}/>
+      {renderAfter()}
+    </React.Fragment>
   )
 };
 
