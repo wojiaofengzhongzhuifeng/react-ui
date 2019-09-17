@@ -12,10 +12,11 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   addOnBefore?: React.ReactNode
   value?: string
   onChange?: React.ChangeEventHandler
+  disabled?: boolean
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
-  const {className, addOnBefore, addOnAfter,width,onChange,...reset} = props;
+  const {className, addOnBefore, addOnAfter,width,onChange,disabled,...reset} = props;
 
   const renderBefore = ()=>{
     if(addOnBefore){
@@ -44,10 +45,14 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
   return (
 		<span className={sc('wrapper')} style={{width}}>
       {renderBefore()}
-      <input className={classes(sc(), className)} onChange={handleInputChange} {...reset}/>
+      <input className={classes(sc(), className)} onChange={handleInputChange} {...reset} disabled={disabled}/>
       {renderAfter()}
     </span>
   )
+};
+
+Input.defaultProps = {
+  disabled: false
 };
 
 export default Input;

@@ -21,6 +21,7 @@ const InputExample1: React.FunctionComponent = ()=>{
         width={200}
         value={useValue}
         onChange={handleInputChange}
+        disabled={false}
       />
     </div>
   )
