@@ -31,10 +31,10 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value} = props;
 
   return (
-		<div>
+		<div className={sc()}>
       {field && field.map((item)=>(
-        <div key={item.name}>
-          <span>{item.label}</span>
+        <div key={item.name} className={sc('item')}>
+          <span className={sc('name')}>{item.label}</span>
           <Input type={item.input.type} name={item.name} value={value.name}/>
         </div>
       ))}

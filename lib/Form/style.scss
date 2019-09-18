@@ -1,0 +1,8 @@
+.rao-form{
+  &-item{
+    display: flex;
+  }
+  & .rao-input-wrapper{
+    flex: 1
+  }
+}
