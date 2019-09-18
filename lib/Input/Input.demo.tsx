@@ -48,6 +48,13 @@ const dataSource: Array<DataSource> = [
     type: 'fn',
     defaultValue: '无',
   },
+  {
+    key: 7,
+    arguments: '...reset',
+    description: '继承自 React.InputHTMLAttributes<HTMLInputElement>',
+    type: '无',
+    defaultValue: '无',
+  },
 ];
 
 const columns: Array<Column> = [
