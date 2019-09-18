@@ -40,7 +40,14 @@ const dataSource: Array<DataSource> = [
     description: '控制 input 是否能使用',
     type: 'boolean',
     defaultValue: 'false',
-  }
+  },
+  {
+    key: 6,
+    arguments: 'onPressEnter',
+    description: '当 input 按下 enter 的时候调用的函数',
+    type: 'fn',
+    defaultValue: '',
+  },
 ];
 
 const columns: Array<Column> = [
