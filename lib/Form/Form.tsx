@@ -25,10 +25,11 @@ export interface FormField{
 interface FormProps {
   field: Array<FormField>
   value: FormValue
+  buttons: Array<React.ReactElement>
 }
 
 const Form: React.FunctionComponent<FormProps> = (props)=> {
-  const {field, value} = props;
+  const {field, value, buttons} = props;
 
   return (
 		<div className={sc()}>
@@ -38,6 +39,11 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
           <Input type={item.input.type} name={item.name} value={value.name}/>
         </div>
       ))}
+      {buttons && buttons.map((item, key)=>{
+        return React.cloneElement(item,{
+          key: key
+        })
+      })}
     </div>
   )
 };

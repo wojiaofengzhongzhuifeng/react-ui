@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Form, { FormField } from './Form';
 import { useState } from 'react';
+import Button from '../Button';
 
 
 const FormExample1: React.FunctionComponent = ()=>{
@@ -14,7 +15,14 @@ const FormExample1: React.FunctionComponent = ()=>{
   });
   return (
     <div>
-			<Form field={useField} value={useValue}/>
+			<Form
+			  field={useField}
+			  value={useValue}
+			  buttons={[
+			    <Button type='default'>提交</Button>,
+          <Button type='primary'>取消</Button>,
+        ]}
+      />
     </div>
   )
 };
