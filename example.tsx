@@ -12,6 +12,7 @@ import logo from './asset/logo.png';
 import './example.scss';
 
 // add demo 1
+import FormDemo from './lib/Form/Form.demo';
 import InputDemo from './lib/Input/Input.demo';
 import IconDemo from './lib/icon/Icon.demo';
 import ButtonDemo from './lib/Button/Button.demo';
@@ -34,6 +35,9 @@ const Example = ()=>{
             <nav>
               <ul>
                 {/*add demo 2*/}
+                <li>
+                  <NavLink to="/Form">Form</NavLink>
+                </li>
                 <li>
                   <NavLink to="/Input">Input</NavLink>
                 </li>
@@ -61,6 +65,7 @@ const Example = ()=>{
           <Content className='site-main'>
             <div>
               {/*add demo 3*/}
+              <Route path="/Form" exact component={FormDemo} />
               <Route path="/Input" exact component={InputDemo} />
               <Route path="/Icon" exact component={IconDemo} />
               <Route path="/dialog" component={DialogDemo} />
