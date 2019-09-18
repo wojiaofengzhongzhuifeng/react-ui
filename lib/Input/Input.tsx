@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { classes, scopeClass } from '../helpers/classes';
 import './style.scss';
+import { useEffect } from 'react';
 
 const sc = scopeClass('rao-input');
 
@@ -13,10 +14,15 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   value?: string
   onChange?: React.ChangeEventHandler
   disabled?: boolean
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
-  const {className, addOnBefore, addOnAfter,width,onChange,disabled,...reset} = props;
+  const {className, addOnBefore, addOnAfter,width,onChange,disabled,onPressEnter,...reset} = props;
+
+  const handleKeyDown = (e)=>{
+    console.log(e);
+  };
 
   const renderBefore = ()=>{
     if(addOnBefore){
@@ -45,7 +51,13 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
   return (
 		<span className={sc('wrapper')} style={{width}}>
       {renderBefore()}
-      <input className={classes(sc(), className)} onChange={handleInputChange} {...reset} disabled={disabled}/>
+      <input
+        className={classes(sc(), className)}
+        onChange={handleInputChange}
+        {...reset}
+        disabled={disabled}
+        onKeyPress={handleKeyDown}
+      />
       {renderAfter()}
     </span>
   )

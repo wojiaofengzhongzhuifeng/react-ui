@@ -11,6 +11,10 @@ const InputExample1: React.FunctionComponent = ()=>{
     setValue(e.target.value)
   };
 
+  const handlePressEnter = (e: any) => {
+    console.log(e);
+  };
+
   return (
     <div>
 			<Input
@@ -22,6 +26,7 @@ const InputExample1: React.FunctionComponent = ()=>{
         value={useValue}
         onChange={handleInputChange}
         disabled={false}
+        onPressEnter={handlePressEnter}
       />
     </div>
   )
