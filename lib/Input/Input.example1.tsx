@@ -3,6 +3,7 @@ import * as React from 'react';
 import Input from './Input';
 import Icon from '../icon/Icon';
 import { useState } from 'react';
+import Button from '../Button';
 
 const InputExample1: React.FunctionComponent = ()=>{
   const [useValue, setValue] = useState<string>('12321');
@@ -14,6 +15,10 @@ const InputExample1: React.FunctionComponent = ()=>{
   const handlePressEnter = (e: React.KeyboardEvent) => {
     console.log("e", e);
     console.log('点击了 enter');
+  };
+
+  const handleClick = ()=>{
+    console.log("useValue", useValue);
   };
 
   return (
@@ -29,6 +34,7 @@ const InputExample1: React.FunctionComponent = ()=>{
         disabled={false}
         onPressEnter={handlePressEnter}
       />
+      <Button onClick={handleClick}>获取 value 值</Button>
     </div>
   )
 };

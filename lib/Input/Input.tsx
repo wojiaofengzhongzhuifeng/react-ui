@@ -16,7 +16,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {
-  const {className, addOnBefore, addOnAfter,width,onChange,disabled,onPressEnter,...reset} = props;
+  const {className, addOnBefore, addOnAfter,width,onChange,disabled,onPressEnter,value,...reset} = props;
 
   const handleKeyDown = (event: React.KeyboardEvent)=>{
     if(event.key === 'Enter'){
@@ -49,6 +49,10 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
     onChange && onChange(e);
   };
 
+  const getValue = ()=>{
+    return value
+  };
+
   return (
 		<span className={sc('wrapper')} style={{width}}>
       {renderBefore()}
@@ -58,6 +62,7 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
         {...reset}
         disabled={disabled}
         onKeyDown={handleKeyDown}
+        value={getValue()}
       />
       {renderAfter()}
     </span>
