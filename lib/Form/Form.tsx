@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { classes, scopeClass } from '../helpers/classes';
+import { scopeClass } from '../helpers/classes';
 import './style.scss';
 import Input from '../Input';
 
@@ -12,13 +12,13 @@ interface FormValue{
   [k: string]: string
 }
 
-type Test = 'password' | 'checkbox' | 'file' | 'hidden' | 'image' | 'radio' | 'reset' | 'text'
+type Type = 'password' | 'checkbox' | 'file' | 'hidden' | 'image' | 'radio' | 'reset' | 'text'
 
-interface FormField{
+export interface FormField{
   name: string
   label: string
   input: {
-    type: Test
+    type: Type
   }
 }
 
@@ -33,7 +33,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
   return (
 		<div>
       {field && field.map((item)=>(
-        <div>
+        <div key={item.name}>
           <span>{item.label}</span>
           <Input type={item.input.type} name={item.name} value={value.name}/>
         </div>
