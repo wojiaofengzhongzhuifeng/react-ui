@@ -12,7 +12,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   value?: string
   onChange?: React.ChangeEventHandler
   disabled?: boolean
-  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
+  onPressEnter?: React.KeyboardEventHandler<Element>
 }
 
 const Input: React.FunctionComponent<InputProps> = (props)=> {

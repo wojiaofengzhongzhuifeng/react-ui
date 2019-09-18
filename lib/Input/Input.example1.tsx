@@ -11,8 +11,9 @@ const InputExample1: React.FunctionComponent = ()=>{
     setValue(e.target.value)
   };
 
-  const handlePressEnter = (e: any) => {
-    console.log(e);
+  const handlePressEnter = (e: React.KeyboardEvent) => {
+    console.log("e", e);
+    console.log('点击了 enter');
   };
 
   return (
