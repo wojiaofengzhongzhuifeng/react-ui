@@ -1,8 +1,6 @@
-
 import * as React from 'react';
 import { classes, scopeClass } from '../helpers/classes';
 import './style.scss';
-import { useEffect } from 'react';
 
 const sc = scopeClass('rao-input');
 
@@ -20,8 +18,11 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
 const Input: React.FunctionComponent<InputProps> = (props)=> {
   const {className, addOnBefore, addOnAfter,width,onChange,disabled,onPressEnter,...reset} = props;
 
-  const handleKeyDown = (e)=>{
-    console.log(e);
+  const handleKeyDown = (event: React.KeyboardEvent)=>{
+    if(event.key === 'Enter'){
+      console.log('点击了 enter');
+      onPressEnter && onPressEnter(event)
+    }
   };
 
   const renderBefore = ()=>{
@@ -56,7 +57,7 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
         onChange={handleInputChange}
         {...reset}
         disabled={disabled}
-        onKeyPress={handleKeyDown}
+        onKeyDown={handleKeyDown}
       />
       {renderAfter()}
     </span>
