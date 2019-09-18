@@ -46,7 +46,7 @@ const dataSource: Array<DataSource> = [
     arguments: 'onPressEnter',
     description: '当 input 按下 enter 的时候调用的函数',
     type: 'fn',
-    defaultValue: '',
+    defaultValue: '无',
   },
 ];
 
