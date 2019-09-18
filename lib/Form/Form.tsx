@@ -8,9 +8,23 @@ const sc = scopeClass('rao-form');
 
 console.log(sc);
 
+interface FormValue{
+  [k: string]: string
+}
+
+type Test = 'password' | 'checkbox' | 'file' | 'hidden' | 'image' | 'radio' | 'reset' | 'text'
+
+interface FormField{
+  name: string
+  label: string
+  input: {
+    type: Test
+  }
+}
+
 interface FormProps {
-  field: any
-  value: any
+  field: Array<FormField>
+  value: FormValue
 }
 
 const Form: React.FunctionComponent<FormProps> = (props)=> {
