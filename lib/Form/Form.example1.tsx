@@ -10,8 +10,8 @@ const FormExample1: React.FunctionComponent = ()=>{
     {name: 'password', label: '密码', input: {type: 'password'}}
   ]);
   const [useValue] = useState({
-    username: '',
-    password: '',
+    username: '1',
+    password: '2',
   });
   return (
     <div>

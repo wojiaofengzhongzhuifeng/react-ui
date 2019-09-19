@@ -24,6 +24,7 @@ export interface FormField{
 
 interface FormProps {
   field: Array<FormField>
+  // todo 能渲染 value 的值
   value: FormValue
   buttons: Array<React.ReactElement>
 }
@@ -31,12 +32,14 @@ interface FormProps {
 const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value, buttons} = props;
 
+  console.log(value);
+
   return (
 		<div className={sc()}>
       {field && field.map((item)=>(
         <div key={item.name} className={sc('item')}>
           <span className={sc('name')}>{item.label}</span>
-          <Input type={item.input.type} name={item.name} value={value.name}/>
+          <Input type={item.input.type} name={item.name} value={'test'}/>
         </div>
       ))}
       {buttons && buttons.map((item, key)=>{
