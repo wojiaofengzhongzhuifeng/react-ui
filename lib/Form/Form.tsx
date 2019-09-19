@@ -30,14 +30,12 @@ interface FormProps {
 const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value, buttons} = props;
 
-  console.log(value);
-
   return (
 		<div className={sc()}>
       {field && field.map((item)=>(
         <div key={item.name} className={sc('item')}>
           <span className={sc('name')}>{item.label}</span>
-          <Input type={item.input.type} name={item.name} value={'test'}/>
+          <Input type={item.input.type} name={item.name} value={value[item.name]}/>
         </div>
       ))}
       {buttons && buttons.map((item, key)=>{
