@@ -6,7 +6,7 @@ import Input from '../Input';
 
 const sc = scopeClass('rao-form');
 
-interface FormValue{
+export interface FormValue{
   [k: string]: string
 }
 
@@ -22,20 +22,30 @@ export interface FormField{
 
 interface FormProps {
   field: Array<FormField>
-  // todo 能渲染 value 的值
   value: FormValue
   buttons: Array<React.ReactElement>
+  onChange?: any
 }
 
 const Form: React.FunctionComponent<FormProps> = (props)=> {
-  const {field, value, buttons} = props;
+  const {field, value, buttons, onChange} = props;
+
+  const handleInputChange = (formKey: string, formValue: string)=>{
+    const newValue = {...value, [formKey]: formValue}
+    onChange && onChange(newValue);
+  };
 
   return (
 		<div className={sc()}>
       {field && field.map((item)=>(
         <div key={item.name} className={sc('item')}>
           <span className={sc('name')}>{item.label}</span>
-          <Input type={item.input.type} name={item.name} value={value[item.name]}/>
+          <Input
+            type={item.input.type}
+            name={item.name}
+            value={value[item.name]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{handleInputChange(item.name, e.target.value)}}
+          />
         </div>
       ))}
       {buttons && buttons.map((item, key)=>{
