@@ -6,8 +6,6 @@ import Input from '../Input';
 
 const sc = scopeClass('rao-form');
 
-console.log(sc);
-
 interface FormValue{
   [k: string]: string
 }

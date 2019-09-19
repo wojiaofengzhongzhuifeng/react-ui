@@ -6,11 +6,9 @@ interface Props extends React.Props<any>{
 
 const sc = scopeClass('rao-tab');
 
-console.log(sc());
-
-const Tab: React.FunctionComponent<Props> = (props)=> {
+const Tab: React.FunctionComponent<Props> = ()=> {
   return (
-    <div>
+    <div className={sc()}>
       tab
     </div>
   )

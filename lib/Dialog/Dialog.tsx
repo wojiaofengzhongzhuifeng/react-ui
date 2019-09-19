@@ -18,8 +18,6 @@ type DialogFunProps = Omit<Props, 'visible'>
 
 const sc = scopeClass('rao-dialog');
 
-console.log(sc('mask'));
-
 const Dialog: React.FunctionComponent<Props> = (props)=> {
   const {visible, children, footer, handleClickXOrMask, closeOnClickMask, title} = props;
 

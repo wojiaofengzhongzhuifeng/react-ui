@@ -4,8 +4,6 @@ import './style.scss';
 
 const sc = scopeClass('rao-input');
 
-console.log(sc);
-
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   addOnAfter?: React.ReactNode
   addOnBefore?: React.ReactNode

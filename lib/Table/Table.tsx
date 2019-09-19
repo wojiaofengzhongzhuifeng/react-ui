@@ -20,8 +20,6 @@ interface Props extends React.Props<any>{
 
 const sc = scopeClass('rao-table');
 
-console.log(sc);
-
 const Table: React.FunctionComponent<Props> = (props)=> {
   const {columns, dataSource} = props;
 
