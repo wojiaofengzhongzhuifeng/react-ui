@@ -6,7 +6,7 @@ import Input from '../Input';
 
 const sc = scopeClass('rao-form');
 
-export interface FormValue{
+export interface FormData{
   [k: string]: string
 }
 
@@ -22,7 +22,7 @@ export interface FormField{
 
 interface FormProps {
   field: Array<FormField>
-  value: FormValue
+  value: FormData
   buttons: Array<React.ReactElement>
   onChange?: any
 }
