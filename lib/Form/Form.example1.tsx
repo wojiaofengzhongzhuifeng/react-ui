@@ -2,6 +2,7 @@ import * as React from 'react';
 import Form, { FormField, FormData } from './Form';
 import { useState } from 'react';
 import Button from '../Button';
+import { Errors, Rule, validator } from './Validator';
 
 
 const FormExample1: React.FunctionComponent = ()=>{
@@ -19,7 +20,9 @@ const FormExample1: React.FunctionComponent = ()=>{
   };
 
   const handleSubmit = ()=>{
-    console.log(useValue);
+    const rule: Array<Rule> = [{name: 'password', isRequire: true}];
+    const errors: Errors = validator(useValue, rule);
+    console.log("errors",errors);
   };
 
   return (
