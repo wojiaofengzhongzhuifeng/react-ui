@@ -28,7 +28,9 @@ const FormExample1: React.FunctionComponent = ()=>{
 
     ];
     const errors: Errors = validator(useValue, rule);
-    console.log("errors",errors);
+    if(!errors){
+      console.log('用户提交表单正常');
+    }
   };
 
   return (

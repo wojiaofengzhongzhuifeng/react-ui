@@ -1,13 +1,15 @@
 import {FormData} from './Form';
+import { isEmptyObj } from '../helpers';
 
 export interface Rule {
   name: string
   [k: string]: any
 }
 
-export interface Errors {
+interface PureErrors {
   [k:string]: Array<string>
 }
+export type Errors = PureErrors | null
 
 export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rules)=>{
   const errors: Errors = {};
@@ -29,5 +31,5 @@ export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rule
       errors[formName].push('太短');
     }
   });
-  return errors;
+  return isEmptyObj(errors) ? null : errors;
 };
