@@ -25,10 +25,11 @@ interface FormProps extends React.FormHTMLAttributes<HTMLFormElement>{
   value: FormData
   buttons: Array<React.ReactElement>
   onChange?: any
+  onSubmit?:any
 }
 
 const Form: React.FunctionComponent<FormProps> = (props)=> {
-  const {field, value, buttons, onChange} = props;
+  const {field, value, buttons, onChange, onSubmit, ...reset} = props;
 
   const handleInputChange = (formKey: string, formValue: string)=>{
     const newValue = {...value, [formKey]: formValue};
@@ -37,11 +38,12 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
 
   const handleSubmit = (e: React.FormEvent)=>{
     e.preventDefault();
+    onSubmit && onSubmit(e);
     console.log('用户 submit');
   };
 
   return (
-		<form className={sc()} onSubmit={handleSubmit}>
+		<form className={sc()} onSubmit={handleSubmit} {...reset}>
       {field && field.map((item)=>(
         <div key={item.name} className={sc('item')}>
           <span className={sc('name')}>{item.label}</span>

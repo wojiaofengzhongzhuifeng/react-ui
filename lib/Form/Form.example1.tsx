@@ -18,6 +18,10 @@ const FormExample1: React.FunctionComponent = ()=>{
     setValue(formData)
   };
 
+  const handleSubmit = ()=>{
+    console.log(useValue);
+  };
+
   return (
     <div>
 			<Form
@@ -28,6 +32,7 @@ const FormExample1: React.FunctionComponent = ()=>{
           <Button buttonType='primary'>取消</Button>,
         ]}
         onChange={handleFormChange}
+        onSubmit={handleSubmit}
       />
     </div>
   )
