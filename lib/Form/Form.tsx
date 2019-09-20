@@ -39,7 +39,6 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
   const handleSubmit = (e: React.FormEvent)=>{
     e.preventDefault();
     onSubmit && onSubmit(e);
-    console.log('用户 submit');
   };
 
   return (
