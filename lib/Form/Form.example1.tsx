@@ -24,8 +24,8 @@ const FormExample1: React.FunctionComponent = ()=>{
 			  field={useField}
 			  value={useValue}
 			  buttons={[
-			    <Button type='default'>提交</Button>,
-          <Button type='primary'>取消</Button>,
+			    <Button buttonType='default'>提交</Button>,
+          <Button buttonType='primary'>取消</Button>,
         ]}
         onChange={handleFormChange}
       />

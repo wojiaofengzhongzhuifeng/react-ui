@@ -9,14 +9,14 @@ const sc = scopeClass('rao-button');
 const ButtonTypes = tuple('default', 'primary', 'link');
 type ButtonType = (typeof ButtonTypes)[number];
 
-interface NativeButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'>{
-  type?: ButtonType
+interface NativeButtonProps extends React.ButtonHTMLAttributes<any>{
+  buttonType?: ButtonType
   icon?: string
   loading?: boolean
 }
 
-interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'>{
-  type?: ButtonType
+interface AnchorButtonProps extends React.ButtonHTMLAttributes<any>{
+  buttonType?: ButtonType
   icon?: string
   loading?: boolean
   href?: string
@@ -26,7 +26,7 @@ interface AnchorButtonProps extends Omit<React.ButtonHTMLAttributes<any>, 'type'
 interface ButtonProps extends NativeButtonProps, AnchorButtonProps{}
 
 const Button: React.FunctionComponent<ButtonProps> = (props)=> {
-  const {type, className: userClassName, icon, loading, onClick, children,...reset} = props;
+  const {buttonType, className: userClassName, icon, loading, onClick, children,...reset} = props;
 
   const buttonClassName: (p1?: string)=>string = (className)=>{
     return className ?
@@ -39,14 +39,14 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
   };
 
   let render;
-  if(type === 'link'){
+  if(buttonType === 'link'){
     render = (
       <a className={buttonClassName('link')} onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
         {children}
       </a>
     )
-  } else if(type === 'default'){
+  } else if(buttonType === 'default'){
     render = (
       <button className={buttonClassName()}  onClick={handleClickEvent} {...reset}>
         {loading ? <Icon iconName='loading' className='rao-icon-rotating'/> : <Icon iconName={icon}/>}
@@ -71,7 +71,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
 };
 
 Button.defaultProps = {
-  type: 'default',
+  buttonType: 'default',
   loading: false
 };
 

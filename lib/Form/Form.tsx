@@ -31,7 +31,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value, buttons, onChange} = props;
 
   const handleInputChange = (formKey: string, formValue: string)=>{
-    const newValue = {...value, [formKey]: formValue}
+    const newValue = {...value, [formKey]: formValue};
     onChange && onChange(newValue);
   };
 

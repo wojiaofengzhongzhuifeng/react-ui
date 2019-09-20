@@ -26,8 +26,8 @@ const DialogExample1: React.FunctionComponent = ()=> {
         visible={visible}
         footer={
           [
-            <Button onClick={handleClickCancel} type='link'>取消</Button>,
-            <Button onClick={handleClickConfirm} type='link'>确认</Button>
+            <Button onClick={handleClickCancel} buttonType='link'>取消</Button>,
+            <Button onClick={handleClickConfirm} buttonType='link'>确认</Button>
           ]
         }
         handleClickXOrMask={()=>{setVisible(!visible)}}

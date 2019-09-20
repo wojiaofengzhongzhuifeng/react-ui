@@ -8,7 +8,7 @@ import Button from './Button';
 const ButtonDataSource: Array<DataSource> = [
   {
     key: 1,
-    arguments: 'type',
+    arguments: 'buttonType',
     description: '指定 button 的类型，根据类型，样式不同，可选类型有「\'default\', \'primary\', \'link\'」',
     type: 'string',
     defaultValue: '无',
@@ -102,7 +102,7 @@ const ButtonDemo = () => {
 
       <Card>
         <h2>总结</h2>
-        <Button type='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/react轮子/11Button.md' target='_blank'>连接</Button>
+        <Button buttonType='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/react轮子/11Button.md' target='_blank'>连接</Button>
       </Card>
     </div>
   );

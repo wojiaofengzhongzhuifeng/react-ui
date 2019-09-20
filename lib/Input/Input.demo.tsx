@@ -103,7 +103,7 @@ const InputDemo = () => {
 
       <Card>
         <h2>总结</h2>
-        <Button type='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/react轮子/12Input.md' target='_blank'>连接</Button>
+        <Button buttonType='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/react轮子/12Input.md' target='_blank'>连接</Button>
       </Card>
     </div>
   );

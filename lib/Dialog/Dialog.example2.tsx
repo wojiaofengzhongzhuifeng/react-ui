@@ -13,7 +13,7 @@ const DialogExample2: React.FunctionComponent = ()=> {
         <div>
           jfdklsj
           jfkdla
-          <Button onClick={handleClickClose} type='link'>关闭</Button>
+          <Button onClick={handleClickClose} buttonType='link'>关闭</Button>
         </div>
       ),
     })

@@ -26,7 +26,7 @@ const ButtonExample1: React.FunctionComponent = ()=>{
   return (
     <div>
       <Button
-        type='link'
+        buttonType='link'
         className={'userLinkClass'}
         icon={"apple"}
         onClick={handleClickLink}
@@ -37,7 +37,7 @@ const ButtonExample1: React.FunctionComponent = ()=>{
         link
       </Button>
       <Button
-        type='default'
+        buttonType='default'
         className={'userDefailtClass'}
         icon={"api"}
         onClick={handleClickDefault}
@@ -46,7 +46,7 @@ const ButtonExample1: React.FunctionComponent = ()=>{
         default
       </Button>
       <Button
-        type='primary'
+        buttonType='primary'
         onClick={handleClickPrimary}
       >
         primary
