@@ -20,7 +20,13 @@ const FormExample1: React.FunctionComponent = ()=>{
   };
 
   const handleSubmit = ()=>{
-    const rule: Array<Rule> = [{name: 'password', isRequire: true}, {name: 'username', isRequire: true}];
+    const rule: Array<Rule> = [
+      {name: 'password', isRequire: true},
+      {name: 'username', isRequire: true},
+      {name: 'password', minLength: '6'},
+      {name: 'username', minLength: '6'}
+
+    ];
     const errors: Errors = validator(useValue, rule);
     console.log("errors",errors);
   };
