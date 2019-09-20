@@ -12,6 +12,13 @@ const dataSource: Array<DataSource> = [
     description: '指定 button 的类型，根据类型，样式不同，可选类型有「\'default\', \'primary\', \'link\'」',
     type: 'string',
     defaultValue: '无',
+  },
+  {
+    key: 2,
+    arguments: '...reset',
+    description: '继承自 React.FormHTMLAttributes<HTMLFormElement>',
+    type: 'Object',
+    defaultValue: '无',
   }
 ];
 

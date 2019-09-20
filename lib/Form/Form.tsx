@@ -20,7 +20,7 @@ export interface FormField{
   }
 }
 
-interface FormProps {
+interface FormProps extends React.FormHTMLAttributes<HTMLFormElement>{
   field: Array<FormField>
   value: FormData
   buttons: Array<React.ReactElement>
@@ -35,8 +35,13 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
     onChange && onChange(newValue);
   };
 
+  const handleSubmit = (e: React.FormEvent)=>{
+    e.preventDefault();
+    console.log('用户 submit');
+  };
+
   return (
-		<div className={sc()}>
+		<form className={sc()} onSubmit={handleSubmit}>
       {field && field.map((item)=>(
         <div key={item.name} className={sc('item')}>
           <span className={sc('name')}>{item.label}</span>
@@ -53,7 +58,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
           key: key
         })
       })}
-    </div>
+    </form>
   )
 };
 
