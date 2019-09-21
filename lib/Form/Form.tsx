@@ -62,6 +62,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
                   name={fieldName}
                   value={value[fieldName]}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{handleInputChange(fieldName, e.target.value)}}
+                  style={errors && errors[fieldName] ? {border:"1px solid red"} : {}}
                 />
                 <span style={{color: 'red'}}>
                   {errors && errors[fieldName]}
