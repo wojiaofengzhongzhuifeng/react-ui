@@ -14,6 +14,7 @@ const FormExample1: React.FunctionComponent = ()=>{
     username: '1',
     password: '2',
   });
+  const [useErrors, setErrors] = useState<Errors>({});
 
   const handleFormChange = (formData: FormData)=>{
     setValue(formData)
@@ -30,8 +31,10 @@ const FormExample1: React.FunctionComponent = ()=>{
     const errors: Errors = validator(useValue, rule);
     if(!errors){
       console.log('用户提交表单正常');
+      setErrors(null);
     } else {
       console.log("errors", errors);
+      setErrors(errors);
     }
   };
 
@@ -46,6 +49,7 @@ const FormExample1: React.FunctionComponent = ()=>{
         ]}
         onChange={handleFormChange}
         onSubmit={handleSubmit}
+        errors={useErrors}
       />
     </div>
   )
