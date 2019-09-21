@@ -52,7 +52,9 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
             <td className={sc('td')}>
               <span className={sc('name')}>{item.label}</span>
             </td>
-            <td>
+            <td style={{
+              paddingLeft: "16px"
+            }}>
               <Input
                 type={item.input.type}
                 name={item.name}
@@ -63,8 +65,9 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
           </tr>
         ))}
         <tr className="rao-form-tr">
-          <td className="rao-form-td"/>
-          <td className="rao-form-td">
+          <td className="rao-form-td" style={{
+            textAlign: 'right'
+          }}>
             {buttons && buttons.map((item, key)=>{
               return React.cloneElement(item,{
                 key: key
