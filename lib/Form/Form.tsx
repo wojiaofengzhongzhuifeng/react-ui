@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { scopeClass } from '../helpers/classes';
+import { classes, scopeClass } from '../helpers/classes';
 import './style.scss';
 import Input from '../Input';
 import { Errors } from './Validator';
@@ -45,23 +45,35 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
 
   return (
 		<form className={sc()} onSubmit={handleSubmit} {...reset}>
-      {JSON.stringify(errors)}
-      {field && field.map((item)=>(
-        <div key={item.name} className={sc('item')}>
-          <span className={sc('name')}>{item.label}</span>
-          <Input
-            type={item.input.type}
-            name={item.name}
-            value={value[item.name]}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{handleInputChange(item.name, e.target.value)}}
-          />
-        </div>
-      ))}
-      {buttons && buttons.map((item, key)=>{
-        return React.cloneElement(item,{
-          key: key
-        })
-      })}
+      <table className={sc('table')}>
+        <tbody>
+        {field && field.map((item)=>(
+          <tr key={item.name} className={classes(sc('item'), sc('tr'))}>
+            <td className={sc('td')}>
+              <span className={sc('name')}>{item.label}</span>
+            </td>
+            <td>
+              <Input
+                type={item.input.type}
+                name={item.name}
+                value={value[item.name]}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{handleInputChange(item.name, e.target.value)}}
+              />
+            </td>
+          </tr>
+        ))}
+        <tr className="rao-form-tr">
+          <td className="rao-form-td"/>
+          <td className="rao-form-td">
+            {buttons && buttons.map((item, key)=>{
+              return React.cloneElement(item,{
+                key: key
+              })
+            })}
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </form>
   )
 };
