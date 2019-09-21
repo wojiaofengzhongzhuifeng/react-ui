@@ -47,23 +47,29 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
 		<form className={sc()} onSubmit={handleSubmit} {...reset}>
       <table className={sc('table')}>
         <tbody>
-        {field && field.map((item)=>(
-          <tr key={item.name} className={classes(sc('item'), sc('tr'))}>
-            <td className={sc('td')}>
-              <span className={sc('name')}>{item.label}</span>
-            </td>
-            <td style={{
-              paddingLeft: "16px"
-            }}>
-              <Input
-                type={item.input.type}
-                name={item.name}
-                value={value[item.name]}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{handleInputChange(item.name, e.target.value)}}
-              />
-            </td>
-          </tr>
-        ))}
+        {field && field.map((item)=>{
+          const fieldName = item.name;  // "password"
+          return (
+            <tr key={fieldName} className={classes(sc('item'), sc('tr'))}>
+              <td className={sc('td')}>
+                <span className={sc('name')}>{item.label}</span>
+              </td>
+              <td style={{
+                paddingLeft: "16px"
+              }}>
+                <Input
+                  type={item.input.type}
+                  name={fieldName}
+                  value={value[fieldName]}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{handleInputChange(fieldName, e.target.value)}}
+                />
+                <span style={{color: 'red'}}>
+                  {errors && errors[fieldName]}
+                </span>
+              </td>
+            </tr>
+          )
+        })}
         <tr className="rao-form-tr">
           <td className="rao-form-td" style={{
             textAlign: 'right'
