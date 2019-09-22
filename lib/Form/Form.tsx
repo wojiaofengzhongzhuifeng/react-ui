@@ -51,8 +51,18 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
     if(errors){
       let renderSpan;
 
-      for(let i=0;i<=errors[fieldName].length - 1;i++){
-        if(typeof errors[fieldName][i] !== 'string'){
+      const errorsValue: Array<string | Promise<any>> = errors[fieldName];
+
+      for(let i=0;i<=errorsValue.length - 1;i++){
+
+        if(typeof errorsValue[i] !== 'string'){
+          // @ts-ignore
+          errorsValue[i].then((resolveString: string)=>{
+            renderSpan = <span>{resolveString}</span>
+          }, (rejectString: string)=>{
+            renderSpan = <span>{rejectString}</span>
+          });
+
           renderSpan = <span>加载中</span>;
           break;
         } else {

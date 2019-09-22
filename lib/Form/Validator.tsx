@@ -9,7 +9,7 @@ export interface Rule {
   asyncValidator?: ()=>Promise<any>
 }
 
-interface PureErrors {
+export interface PureErrors {
   [k:string]: Array<string | Promise<any>>
 }
 export type Errors = PureErrors | null
