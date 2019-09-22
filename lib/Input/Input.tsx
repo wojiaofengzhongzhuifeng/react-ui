@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classes, scopeClass } from '../helpers/classes';
+import { helps, scopeClass } from '../helpers/helps';
 import './style.scss';
 
 const sc = scopeClass('rao-input');
@@ -55,7 +55,7 @@ const Input: React.FunctionComponent<InputProps> = (props)=> {
 		<span className={sc('wrapper')} style={{width}}>
       {renderBefore()}
       <input
-        className={classes(sc(), className)}
+        className={helps(sc(), className)}
         onChange={handleInputChange}
         {...reset}
         disabled={disabled}

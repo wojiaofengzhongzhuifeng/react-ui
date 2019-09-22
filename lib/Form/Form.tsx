@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { classes, scopeClass } from '../helpers/classes';
+import { helps, scopeClass } from '../helpers/helps';
 import './style.scss';
 import Input from '../Input';
 import { Errors } from './Validator';
@@ -50,7 +50,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
         {field && field.map((item)=>{
           const fieldName = item.name;  // "password"
           return (
-            <tr key={fieldName} className={classes(sc('item'), sc('tr'))}>
+            <tr key={fieldName} className={helps(sc('item'), sc('tr'))}>
               <td className={sc('td')}>
                 <span className={sc('name')}>{item.label}</span>
               </td>

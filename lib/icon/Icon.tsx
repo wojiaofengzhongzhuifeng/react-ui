@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './style.scss';
-import {classes} from '../helpers/classes';
+import {helps} from '../helpers/helps';
 
 import './importIcons';
 
@@ -11,7 +11,7 @@ interface Props extends React.SVGAttributes<SVGElement>{
 const Icon: React.FunctionComponent<Props> = ({ iconName, className, ...restProps }) => {
   let render;
   render = iconName ? (
-    <svg {...restProps}  className={classes('rao-icon', className )}>
+    <svg {...restProps}  className={helps('rao-icon', className )}>
       <use xlinkHref={`#${iconName}`}/>
     </svg>
   ) : null;

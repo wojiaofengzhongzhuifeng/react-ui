@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classes, scopeClass } from '../helpers/classes';
+import { helps, scopeClass } from '../helpers/helps';
 import { tuple } from '../_utils/types';
 import './style.scss';
 import Icon from '../icon/Icon';
@@ -30,8 +30,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props)=> {
 
   const buttonClassName: (p1?: string)=>string = (className)=>{
     return className ?
-              `${classes(sc())} ${classes(sc(className), userClassName)}` :
-              `${classes(sc(className), userClassName)}`
+              `${helps(sc())} ${helps(sc(className), userClassName)}` :
+              `${helps(sc(className), userClassName)}`
   };
 
   const handleClickEvent: React.MouseEventHandler = (e)=>{

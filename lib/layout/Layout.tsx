@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import {scopeClass, classes} from '../helpers/classes';
+import {scopeClass, helps} from '../helpers/helps';
 import './style.scss';
 import Sider from './Sider';
 
@@ -22,7 +22,7 @@ const Layout: React.FunctionComponent<Props> = (props)=>{
   const asideStyle = hasAside ? {display: 'flex', ...style} : {...style};
 
   return (
-    <div {...props} className={classes(sc('layout'), className)}  style={asideStyle}>
+    <div {...props} className={helps(sc('layout'), className)} style={asideStyle}>
       {children}
     </div>
   )

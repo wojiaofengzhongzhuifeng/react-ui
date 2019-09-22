@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { scopeClass } from '../helpers/classes';
+import { scopeClass } from '../helpers/helps';
 import './dialog.scss';
 import { ReactElement, Fragment } from 'react';
 import Icon from '../icon/Icon';

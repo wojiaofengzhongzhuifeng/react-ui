@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { scopeClass } from '../helpers/classes';
+import { scopeClass } from '../helpers/helps';
 import './style.scss';
 
 export interface DataSource {

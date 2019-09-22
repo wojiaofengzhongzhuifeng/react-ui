@@ -1,5 +1,5 @@
 import {FormData} from './Form';
-import { isEmptyObj } from '../helpers';
+import { isEmptyObj, flatten } from '../helpers/helps';
 
 export interface Rule {
   name: string
@@ -44,5 +44,8 @@ export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rule
       addError(formName, '太长')
     }
   });
+
+  flatten(Object.keys(errors));
+
   return isEmptyObj(errors) ? null : errors;
 };

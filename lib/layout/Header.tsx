@@ -1,5 +1,5 @@
 import React from 'react';
-import { classes, scopeClass } from '../helpers/classes';
+import { helps, scopeClass } from '../helpers/helps';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement>, React.Props<any>{
 
@@ -11,7 +11,7 @@ const Header: React.FunctionComponent<Props> = (props)=>{
   const {children, className} = props;
 
   return (
-    <div {...props} className={classes(sc('header'), className)}>{children}</div>
+    <div {...props} className={helps(sc('header'), className)}>{children}</div>
   )
 };
 

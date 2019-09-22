@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { scopeClass } from '../helpers/classes';
+import { scopeClass } from '../helpers/helps';
 
 interface Props extends React.Props<any>{
 }
