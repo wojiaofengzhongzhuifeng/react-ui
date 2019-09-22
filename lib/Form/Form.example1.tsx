@@ -14,7 +14,7 @@ const asyncCheckUserNameUnique = (userName: string)=>{
       } else {
         reject('不能使用该名字');
       }
-    }, 3000)
+    }, 6000)
   })
 };
 
@@ -27,7 +27,7 @@ const FormExample1: React.FunctionComponent = ()=>{
     username: '1',
     password: '2',
   });
-  const [useErrors] = useState<Errors>({});
+  const [useErrors, setErrors] = useState<Errors>(null);
 
   const handleFormChange = (formData: FormData)=>{
     setValue(formData)
@@ -46,16 +46,12 @@ const FormExample1: React.FunctionComponent = ()=>{
       }}
     ];
     validator(useValue, rule, (errors: Errors)=>{
-      console.log("errors", errors);
+      if(!errors){
+        setErrors(null);
+      } else {
+        setErrors(errors);
+      }
     });
-    // console.log('errors', errors);
-    // if(!errors){
-    //   console.log('用户提交表单正常');
-    //   setErrors(null);
-    // } else {
-    //   console.log("errors", errors);
-    //   setErrors(errors);
-    // }
   };
 
   return (

@@ -4,6 +4,7 @@ import { helps, scopeClass } from '../helpers/helps';
 import './style.scss';
 import Input from '../Input';
 import { Errors } from './Validator';
+import { useEffect } from 'react';
 
 const sc = scopeClass('rao-form');
 
@@ -32,6 +33,9 @@ interface FormProps extends React.FormHTMLAttributes<HTMLFormElement>{
 
 const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value, buttons, onChange, onSubmit, errors,...reset} = props;
+  useEffect(()=>{
+    console.log('errors', errors);
+  }, [errors]);
 
   const handleInputChange = (formKey: string, formValue: string)=>{
     const newValue = {...value, [formKey]: formValue};
@@ -41,6 +45,26 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
   const handleSubmit = (e: React.FormEvent)=>{
     e.preventDefault();
     onSubmit && onSubmit(e);
+  };
+
+  const renderErrors = (fieldName: string)=>{
+    if(errors){
+      let renderSpan;
+
+      for(let i=0;i<=errors[fieldName].length - 1;i++){
+        if(typeof errors[fieldName][i] !== 'string'){
+          renderSpan = <span>加载中</span>;
+          break;
+        } else {
+          renderSpan = <span>错误</span>
+        }
+      }
+
+      return renderSpan;
+    } else{
+      return null
+    }
+
   };
 
   return (
@@ -66,6 +90,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
                 />
                 <span style={{color: 'red'}}>
                   {/*{errors && errors[fieldName]}*/}
+                  {renderErrors(fieldName)}
                 </span>
               </td>
             </tr>
