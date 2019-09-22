@@ -3,7 +3,9 @@ import { isEmptyObj } from '../helpers';
 
 export interface Rule {
   name: string
-  [k: string]: any
+  maxLength?: string | number
+  isRequire?: boolean
+  minLength?: string | number
 }
 
 interface PureErrors {
@@ -29,6 +31,13 @@ export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rule
         errors[formName] = [];
       }
       errors[formName].push('太短');
+    }
+
+    if(rule.maxLength && (formData[formName].length >= rule.maxLength)){
+      if(!errors[formName]){
+        errors[formName] = [];
+      }
+      errors[formName].push('太长');
     }
   });
   return isEmptyObj(errors) ? null : errors;

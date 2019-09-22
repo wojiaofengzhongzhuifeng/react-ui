@@ -25,8 +25,9 @@ const FormExample1: React.FunctionComponent = ()=>{
       {name: 'password', isRequire: true},
       {name: 'username', isRequire: true},
       {name: 'password', minLength: '6'},
-      {name: 'username', minLength: '6'}
-
+      {name: 'username', minLength: '6'},
+      {name: 'password', maxLength: '12'},
+      {name: 'username', maxLength: '12'},
     ];
     const errors: Errors = validator(useValue, rule);
     if(!errors){
