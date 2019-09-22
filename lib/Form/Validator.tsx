@@ -6,18 +6,18 @@ export interface Rule {
   maxLength?: string | number
   isRequire?: boolean
   minLength?: string | number
-  asyncValidator?: ()=>void
+  asyncValidator?: ()=>Promise<any>
 }
 
 interface PureErrors {
-  [k:string]: Array<string>
+  [k:string]: Array<string | Promise<any>>
 }
 export type Errors = PureErrors | null
 
 export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rules)=>{
   const errors: Errors = {};
 
-  const addError = (formName: string, errorMessage: string)=>{
+  const addError = (formName: string, errorMessage: string | Promise<any>)=>{
     if(!errors[formName]){
       errors[formName] = [];
     }
@@ -29,8 +29,7 @@ export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rule
     const formName: string = rule.name;
 
     if(rule.asyncValidator){
-      console.log('validator 函数进行验证');
-      rule.asyncValidator();
+      addError(formName, rule.asyncValidator())
     }
 
     if(rule.isRequire && formData[formName] === ''){

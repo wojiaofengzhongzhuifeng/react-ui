@@ -65,7 +65,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
                   style={errors && errors[fieldName] ? {border:"1px solid red"} : {}}
                 />
                 <span style={{color: 'red'}}>
-                  {errors && errors[fieldName]}
+                  {/*{errors && errors[fieldName]}*/}
                 </span>
               </td>
             </tr>
