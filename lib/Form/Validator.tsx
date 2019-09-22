@@ -6,6 +6,7 @@ export interface Rule {
   maxLength?: string | number
   isRequire?: boolean
   minLength?: string | number
+  asyncValidator?: ()=>void
 }
 
 interface PureErrors {
@@ -26,6 +27,11 @@ export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rule
   rules.map((rule)=>{
     // @ts-ignore
     const formName: string = rule.name;
+
+    if(rule.asyncValidator){
+      console.log('validator 函数进行验证');
+      rule.asyncValidator();
+    }
 
     if(rule.isRequire && formData[formName] === ''){
       addError(formName, '必填')
