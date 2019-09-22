@@ -30,6 +30,15 @@ export const flatten: (p1: Array<any>)=>Array<any> = (array)=>{
   return resultArray;
 };
 
+export const objectValueToArray: (p1: Object)=>Array<any> = (obj)=> {
+  const resultArray: Array<any> = [];
+  Object.keys(obj).map((objName: string)=>{
+    // @ts-ignore
+    resultArray.push(obj[objName]);
+  });
+  return resultArray;
+};
+
 
 
 

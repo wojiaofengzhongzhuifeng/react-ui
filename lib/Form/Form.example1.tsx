@@ -27,7 +27,7 @@ const FormExample1: React.FunctionComponent = ()=>{
     username: '1',
     password: '2',
   });
-  const [useErrors, setErrors] = useState<Errors>({});
+  const [useErrors] = useState<Errors>({});
 
   const handleFormChange = (formData: FormData)=>{
     setValue(formData)
@@ -35,25 +35,27 @@ const FormExample1: React.FunctionComponent = ()=>{
 
   const handleSubmit = ()=>{
     const rule: Array<Rule> = [
-      // {name: 'password', isRequire: true},
-      // {name: 'username', isRequire: true},
-      // {name: 'password', minLength: '6'},
-      // {name: 'username', minLength: '6'},
-      // {name: 'password', maxLength: '12'},
-      // {name: 'username', maxLength: '12'},
+      {name: 'password', isRequire: true},
+      {name: 'username', isRequire: true},
+      {name: 'password', minLength: '6'},
+      {name: 'username', minLength: '6'},
+      {name: 'password', maxLength: '12'},
+      {name: 'username', maxLength: '12'},
       {name: 'username', asyncValidator: ()=>{
           return asyncCheckUserNameUnique(useValue.username)
       }}
     ];
-    const errors: Errors = validator(useValue, rule);
-    console.log('errors', errors);
-    if(!errors){
-      console.log('用户提交表单正常');
-      setErrors(null);
-    } else {
+    validator(useValue, rule, (errors: Errors)=>{
       console.log("errors", errors);
-      setErrors(errors);
-    }
+    });
+    // console.log('errors', errors);
+    // if(!errors){
+    //   console.log('用户提交表单正常');
+    //   setErrors(null);
+    // } else {
+    //   console.log("errors", errors);
+    //   setErrors(errors);
+    // }
   };
 
   return (

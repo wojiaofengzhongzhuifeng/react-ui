@@ -1,5 +1,5 @@
 import {FormData} from './Form';
-import { isEmptyObj, flatten } from '../helpers/helps';
+import { isEmptyObj, flatten, objectValueToArray } from '../helpers/helps';
 
 export interface Rule {
   name: string
@@ -14,7 +14,7 @@ interface PureErrors {
 }
 export type Errors = PureErrors | null
 
-export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rules)=>{
+export const validator:(p1: FormData, p2: Array<Rule>, p3: (p1: any)=>void)=>Errors = (formData, rules, cb)=>{
   const errors: Errors = {};
 
   const addError = (formName: string, errorMessage: string | Promise<any>)=>{
@@ -45,7 +45,18 @@ export const validator:(p1: FormData, p2: Array<Rule>)=>Errors = (formData, rule
     }
   });
 
-  flatten(Object.keys(errors));
+
+  const valueArray = objectValueToArray(errors);
+
+  const flattenArray = flatten(valueArray);
+
+  console.log(flattenArray);
+
+  Promise.all(flattenArray).then((resolve)=>{
+    cb(resolve);
+  }, (reject)=>{
+    cb(reject);
+  });
 
   return isEmptyObj(errors) ? null : errors;
 };
