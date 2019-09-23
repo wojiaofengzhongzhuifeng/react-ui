@@ -33,9 +33,10 @@ interface FormProps extends React.FormHTMLAttributes<HTMLFormElement>{
 
 const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value, buttons, onChange, onSubmit, errors,...reset} = props;
+  console.log("errors", errors);
   useEffect(()=>{
     console.log('form 组件接受的errors', errors);
-  }, [errors]);
+  });
 
   const handleInputChange = (formKey: string, formValue: string)=>{
     const newValue = {...value, [formKey]: formValue};
