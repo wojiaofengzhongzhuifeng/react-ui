@@ -35,20 +35,22 @@ const FormExample1: React.FunctionComponent = ()=>{
 
   const handleSubmit = ()=>{
     const rule: Array<Rule> = [
-      {name: 'password', isRequire: true},
-      {name: 'username', isRequire: true},
-      {name: 'password', minLength: '6'},
-      {name: 'username', minLength: '6'},
-      {name: 'password', maxLength: '12'},
-      {name: 'username', maxLength: '12'},
+      // {name: 'password', isRequire: true},
+      // {name: 'username', isRequire: true},
+      // {name: 'password', minLength: '6'},
+      // {name: 'username', minLength: '6'},
+      // {name: 'password', maxLength: '12'},
+      // {name: 'username', maxLength: '12'},
       {name: 'username', asyncValidator: ()=>{
           return asyncCheckUserNameUnique(useValue.username)
       }}
     ];
     validator(useValue, rule, (errors: Errors)=>{
+      console.log('example', errors);
       if(!errors){
         setErrors(null);
       } else {
+        console.log('example 执行了一次', errors);
         setErrors(errors);
       }
     });

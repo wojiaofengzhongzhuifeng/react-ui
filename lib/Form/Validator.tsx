@@ -47,10 +47,10 @@ export const validator:(p1: FormData, p2: Array<Rule>, p3: (p1: any)=>void)=>Err
 
   Object.keys(errors).forEach((errorName: string)=>{
     Promise.all(errors[errorName]).then((resolve)=>{
-      errors[errorName] = resolve
+      errors[errorName] = resolve;
+      cb(errors);
     }, (reject)=>{
-      errors[errorName] = reject
-    }).finally(()=>{
+      errors[errorName] = reject;
       cb(errors);
     })
   });
