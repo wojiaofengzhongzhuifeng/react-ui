@@ -34,7 +34,7 @@ interface FormProps extends React.FormHTMLAttributes<HTMLFormElement>{
 const Form: React.FunctionComponent<FormProps> = (props)=> {
   const {field, value, buttons, onChange, onSubmit, errors,...reset} = props;
   useEffect(()=>{
-    console.log('传给 form组件的 errors是', errors);
+    console.log('form 组件接受的errors', errors);
   }, [errors]);
 
   const handleInputChange = (formKey: string, formValue: string)=>{
@@ -47,11 +47,11 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
     onSubmit && onSubmit(e);
   };
 
-  const renderErrors = (fieldName: string)=>{
-    if(errors){
-      console.log("errors[fieldName]", errors[fieldName]);
-    }
-  };
+  // const renderErrors = (fieldName: string)=>{
+  //   if(errors){
+  //     console.log("errors[fieldName]", errors[fieldName]);
+  //   }
+  // };
 
   return (
 		<form className={sc()} onSubmit={handleSubmit} {...reset}>
@@ -76,7 +76,7 @@ const Form: React.FunctionComponent<FormProps> = (props)=> {
                 />
                 <span style={{color: 'red'}}>
                   {/*{errors && errors[fieldName]}*/}
-                  {renderErrors(fieldName)}
+                  {JSON.stringify(errors)}
                 </span>
               </td>
             </tr>
