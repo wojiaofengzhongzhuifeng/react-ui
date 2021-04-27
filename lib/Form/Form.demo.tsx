@@ -4,6 +4,7 @@ import Card from '../Card/Card';
 import Demo from '../../demo';
 import FormExample1 from './Form.example1';
 import Table, { Column, DataSource } from '../Table/Table';
+import Button from "../Button";
 
 const dataSource: Array<DataSource> = [
   {
@@ -67,6 +68,7 @@ const FormDemo = () => {
 
       <Card>
         <h2>总结</h2>
+        <Button buttonType='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/posts/react/13Form.md' target='_blank'>连接</Button>
       </Card>
     </div>
   );

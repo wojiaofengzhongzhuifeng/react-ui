@@ -112,7 +112,7 @@ const DialogDemo = () => {
 
       <Card>
         <h2>总结</h2>
-        <Button buttonType='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/react轮子/11Button.md' target='_blank'>连接</Button>
+        <Button buttonType='link' href='https://github.com/wojiaofengzhongzhuifeng/study/blob/master/blog/posts/react/11Button.md' target='_blank'>连接</Button>
       </Card>
     </div>
   );
