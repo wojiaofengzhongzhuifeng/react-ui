@@ -2,8 +2,9 @@ import * as React from 'react';
 import Card from '../Card/Card';
 import Demo from '../../demo';
 import ButtonExample1 from './Button.example1';
-import Table, { Column, DataSource } from '../Table/Table';
+import Table, { DataSource } from '../Table/Table';
 import Button from './Button';
+import {columns} from "../_utils/types";
 
 const ButtonDataSource: Array<DataSource> = [
   {
@@ -57,28 +58,7 @@ const ButtonDataSource: Array<DataSource> = [
   }
 ];
 
-const ButtonColumns: Array<Column> = [
-  {
-    title: '参数',
-    key: 'arguments',
-    dataIndex: 'arguments'
-  },
-  {
-    title: '描述',
-    key: 'description',
-    dataIndex: 'description'
-  },
-  {
-    title: '类型',
-    key: 'type',
-    dataIndex: 'type'
-  },
-  {
-    title: '默认值',
-    key: 'defaultValue',
-    dataIndex: 'defaultValue'
-  }
-];
+
 
 const ButtonDemo = () => {
   return (
@@ -97,7 +77,7 @@ const ButtonDemo = () => {
 
       <Card>
         <h2>API</h2>
-        <Table dataSource={ButtonDataSource} columns={ButtonColumns} />
+        <Table dataSource={ButtonDataSource} columns={columns} />
       </Card>
 
       <Card>

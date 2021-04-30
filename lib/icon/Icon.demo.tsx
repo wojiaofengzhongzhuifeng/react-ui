@@ -2,7 +2,8 @@ import IconExample1 from './icon.example1';
 import * as React from 'react';
 import Demo from '../../demo';
 import Card from '../Card/Card';
-import Table, {DataSource, Column} from '../Table/Table';
+import Table, {DataSource} from '../Table/Table';
+import {columns} from "../_utils/types";
 
 const IconDataSource: Array<DataSource> = [
   {
@@ -21,28 +22,7 @@ const IconDataSource: Array<DataSource> = [
   }
 ];
 
-const IconColumns: Array<Column> = [
-  {
-    title: '参数',
-    key: 'arguments',
-    dataIndex: 'arguments'
-  },
-  {
-    title: '描述',
-    key: 'description',
-    dataIndex: 'description'
-  },
-  {
-    title: '类型',
-    key: 'type',
-    dataIndex: 'type'
-  },
-  {
-    title: '默认值',
-    key: 'defaultValue',
-    dataIndex: 'defaultValue'
-  }
-];
+
 
 const IconDemo = () => {
   return (
@@ -61,7 +41,7 @@ const IconDemo = () => {
 
       <Card>
         <h2>API</h2>
-        <Table dataSource={IconDataSource} columns={IconColumns} />
+        <Table dataSource={IconDataSource} columns={columns} />
       </Card>
     </div>
   );

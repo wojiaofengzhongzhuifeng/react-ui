@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Card from '../Card/Card';
 import Demo from '../../demo';
-import Table, { Column, DataSource } from '../Table/Table';
+import Table, { DataSource } from '../Table/Table';
 import DialogExample1 from './Dialog.example1';
 import Button from '../Button';
 import DialogExample2 from './Dialog.example2';
+import {columns} from "../_utils/types";
 
 const dataSource: Array<DataSource> = [
   {
@@ -58,28 +59,7 @@ const dataSource: Array<DataSource> = [
   }
 ];
 
-const column: Array<Column> = [
-  {
-    title: '参数',
-    key: 'arguments',
-    dataIndex: 'arguments'
-  },
-  {
-    title: '描述',
-    key: 'description',
-    dataIndex: 'description'
-  },
-  {
-    title: '类型',
-    key: 'type',
-    dataIndex: 'type'
-  },
-  {
-    title: '默认值',
-    key: 'defaultValue',
-    dataIndex: 'defaultValue'
-  }
-];
+
 
 const DialogDemo = () => {
   return (
@@ -107,7 +87,7 @@ const DialogDemo = () => {
 
       <Card>
         <h2>API</h2>
-        <Table dataSource={dataSource} columns={column} />
+        <Table dataSource={dataSource} columns={columns} />
       </Card>
 
       <Card>
