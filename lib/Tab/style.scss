@@ -1,0 +1,17 @@
+.rao-tab{
+  &-pane-header-ct{
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(240,240,240);
+  }
+  &-pane-content-ct{
+    padding: 10px;
+  }
+  &-pane-header{
+    cursor: pointer;
+    padding: 0 10px;
+  }
+  &-pane-header.active{
+    color: #1890ff;
+  }
+}
