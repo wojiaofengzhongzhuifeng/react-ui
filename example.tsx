@@ -30,7 +30,7 @@ const Example = ()=>{
             <span> RAO </span>
           </div>
         </Header>
-        <Layout style={{height: "85vh"}}>
+        <Layout>
           <Sider style={{width: "10%"}} className='site-aside'>
             <nav>
               <ul>
