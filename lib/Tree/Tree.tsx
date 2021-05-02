@@ -7,7 +7,9 @@ import {TreeItem} from './tree.d';
 
 const sc = scopeClass('rao-tree');
 
-console.log(sc);
+console.log(sc('1'));
+console.log(sc({'active': true, 'active1': false}));
+
 
 interface TreeProps {
   sourceData: TreeItem[]

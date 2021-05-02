@@ -7,12 +7,24 @@ export const helps: (...names: Array<string | undefined>) => string = (...names)
 };
 
 export const scopeClass = (prefix: string)=>{
-  return (className?: string)=>{
-    if(className){
-      return `${prefix}-${className}`
+  return (className?: string | {[key: string]: boolean})=>{
+    if(typeof className === 'string'){
+      if(className){
+        return `${prefix}-${className}`
+      } else {
+        return `${prefix}`
+      }
     } else {
-      return `${prefix}`
+      if(className){
+        let computedClassName = Object.keys(className).filter((classNameKey)=>{
+          return className[classNameKey];
+        }).join('-');
+        return `${prefix}-${computedClassName}`
+      } else {
+        return `${prefix}`
+      }
     }
+
   }
 };
 
