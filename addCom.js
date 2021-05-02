@@ -153,7 +153,7 @@ export default ${componentName}Example1
 
 const componentString = `
 import * as React from 'react';
-import { classes, scopeClass } from '../helpers/classes';
+import { scopeClass } from '../helpers/helps';
 import './style.scss';
 
 const sc = scopeClass('rao-${lowerComponentName}');
