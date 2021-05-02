@@ -47,5 +47,21 @@ const TreeExample1: React.FunctionComponent = ()=>{
   )
 };
 
+export const TreeExample2: React.FunctionComponent = ()=>{
+  const [selected, setSelected] = useState(['1', '2']);
+  const onChange = (clickedItem: TreeItem, isClicked: boolean)=>{
+    if(isClicked){
+      setSelected([...selected, clickedItem.key])
+    } else {
+      setSelected(selected.filter((selectedKeyItem)=>{return selectedKeyItem !== clickedItem.key}))
+    }
+  }
+  return (
+    <div>
+      <Tree sourceData={treeData} selected={selected} onChange={onChange}/>
+    </div>
+  )
+};
+
 export default TreeExample1
 

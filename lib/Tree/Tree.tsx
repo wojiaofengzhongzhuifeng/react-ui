@@ -13,7 +13,7 @@ console.log(sc({'active': true, 'active1': false}));
 
 interface TreeProps {
   sourceData: TreeItem[]
-  selected: string,
+  selected: string | string[],
   onChange: (clickedItem: TreeItem, isChecked: boolean)=>void
 }
 interface TreeItemProps1 {
@@ -50,12 +50,20 @@ const TreeItem2: React.FunctionComponent<TreeItemProps2> = (props)=>{
   )
 }
 
-const TreeItem3 = (item: TreeItem, level = 0, selected: string, fn: (clickedItem: TreeItem, isChecked: boolean)=>void) => {
+const TreeItem3 = (item: TreeItem, level = 0, selected: string|string[], fn: (clickedItem: TreeItem, isChecked: boolean)=>void) => {
   const {key, value, children} = item;
   let currentLevel = level + 1;
   let levelClassName = `item-level-${currentLevel}`
 
-  const isChecked = selected === key;
+  const computedIsChecked = ()=>{
+    if(typeof selected === 'string'){
+      return selected === key
+    } else {
+      return selected.includes(key)
+    }
+  }
+
+  const isChecked = computedIsChecked();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     fn(item, e.target.checked)
   }

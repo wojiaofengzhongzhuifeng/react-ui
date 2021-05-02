@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Card from '../Card/Card';
 import Demo from '../../demo';
-import TreeExample1 from './Tree.example1';
+import TreeExample1, {TreeExample2} from './Tree.example1';
 import Table, { Column, DataSource } from '../Table/Table';
 
 const dataSource: Array<DataSource> = [
@@ -50,6 +50,13 @@ const TreeDemo = () => {
         <h2>使用示例</h2>
         <Demo code={require('!!raw-loader!./Tree.example1.tsx').default}>
           <TreeExample1/>
+        </Demo>
+      </Card>
+
+      <Card>
+        <h2>使用示例</h2>
+        <Demo code={require('!!raw-loader!./Tree.example1.tsx').default}>
+          <TreeExample2/>
         </Demo>
       </Card>
 
