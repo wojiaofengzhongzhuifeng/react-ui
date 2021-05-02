@@ -126,7 +126,7 @@ const TreeItem4: React.FunctionComponent<TreeItemProps3> = ({item, level, treePr
     setExpanded(false);
   }
 
-  return <div  key={key} className={sc({[levelClassName]: true})}>
+  return <div className={sc({[levelClassName]: true})}>
     <div>
       {
         item.children ? <span>
@@ -138,7 +138,7 @@ const TreeItem4: React.FunctionComponent<TreeItemProps3> = ({item, level, treePr
     <div className={`${sc('item-ct')} ${sc({item: true, collapsed: !expanded})}`}>
       {children && children.map((sub: TreeItem) => {
         // return TreeItem3(sub, level + 1, treeProps.selected);
-        return <TreeItem4 item={sub} level={level + 1} treeProps={treeProps}/>
+        return <TreeItem4 item={sub} level={level + 1} treeProps={treeProps} key={sub.key}/>
       })}
     </div>
 
@@ -154,7 +154,7 @@ const Tree: React.FunctionComponent<TreeProps> = (props)=> {
           // return <TreeItem1 sourceData={treeItem}/>
           // return <TreeItem2 {...treeItem}/>
           // return TreeItem3(treeItem, 0, props.selected, props.onChange)
-          return <TreeItem4  item={treeItem} level={0} treeProps={props}/>
+          return <TreeItem4  item={treeItem} level={0} treeProps={props} key={treeItem.key}/>
         })
       }
     </div>
