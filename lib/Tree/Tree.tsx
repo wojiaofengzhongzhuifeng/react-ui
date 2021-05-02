@@ -13,6 +13,8 @@ console.log(sc({'active': true, 'active1': false}));
 
 interface TreeProps {
   sourceData: TreeItem[]
+  selected: string,
+  onChange: (clickedItem: TreeItem, isChecked: boolean)=>void
 }
 interface TreeItemProps1 {
   sourceData: TreeItem
@@ -39,6 +41,7 @@ const TreeItem2: React.FunctionComponent<TreeItemProps2> = (props)=>{
   return (
     <div key={value}>
       {value}
+      <input type="checkbox"/>
       {children && children.map((treeItem)=>{
         console.log(treeItem);
         return <TreeItem2 {...treeItem}/>
@@ -47,15 +50,20 @@ const TreeItem2: React.FunctionComponent<TreeItemProps2> = (props)=>{
   )
 }
 
-const TreeItem3 = (item: TreeItem, level = 0) => {
+const TreeItem3 = (item: TreeItem, level = 0, selected: string, fn: (clickedItem: TreeItem, isChecked: boolean)=>void) => {
   const {key, value, children} = item;
   let currentLevel = level + 1;
   let levelClassName = `item-level-${currentLevel}`
 
+  const isChecked = selected === key;
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    fn(item, e.target.checked)
+  }
+
   return <div key={key}  className={sc({[levelClassName]: true})}>
-    <div>{value}</div>
+    <div><input type="checkbox" checked={isChecked} onChange={onChange}/>{value}</div>
     {children && children.map(sub => {
-      return TreeItem3(sub, level + 1);
+      return TreeItem3(sub, level + 1, selected, fn);
     })}
   </div>;
 };
@@ -63,11 +71,12 @@ const TreeItem3 = (item: TreeItem, level = 0) => {
 const Tree: React.FunctionComponent<TreeProps> = (props)=> {
   return (
 		<div>
+      selected: {props.selected}
       {
         props.sourceData && props.sourceData.map((treeItem)=>{
           // return <TreeItem1 sourceData={treeItem}/>
           // return <TreeItem2 {...treeItem}/>
-          return TreeItem3(treeItem)
+          return TreeItem3(treeItem, 0, props.selected, props.onChange)
         })
       }
     </div>

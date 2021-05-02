@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Tree from './Tree';
 import {TreeItem} from './tree.d';
+import {useState} from "react";
 
 const treeData: TreeItem[] = [
   {
@@ -31,9 +32,17 @@ const treeData: TreeItem[] = [
 
 
 const TreeExample1: React.FunctionComponent = ()=>{
+  const [selected, setSelected] = useState('1');
+  const onChange = (clickedItem: TreeItem, isClicked: boolean)=>{
+    if(isClicked){
+      setSelected(clickedItem.key)
+    } else {
+      setSelected('')
+    }
+  }
   return (
     <div>
-			<Tree sourceData={treeData}/>
+			<Tree sourceData={treeData} selected={selected} onChange={onChange}/>
     </div>
   )
 };
