@@ -47,13 +47,15 @@ const TreeItem2: React.FunctionComponent<TreeItemProps2> = (props)=>{
   )
 }
 
-const TreeItem3 = (item: TreeItem) => {
+const TreeItem3 = (item: TreeItem, level = 0) => {
   const {key, value, children} = item;
+  let currentLevel = level + 1;
+  let levelClassName = `item-level-${currentLevel}`
 
-  return <div key={key}>
-    {value}
+  return <div key={key}  className={sc({[levelClassName]: true})}>
+    <div>{value}</div>
     {children && children.map(sub => {
-      return TreeItem3(sub);
+      return TreeItem3(sub, level + 1);
     })}
   </div>;
 };

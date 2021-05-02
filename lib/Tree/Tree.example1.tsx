@@ -9,7 +9,8 @@ const treeData: TreeItem[] = [
     value: '1',
     children: [
       {key: '1.1',value: '1.1', children: [{key: '1.1.1', value: '1.1.1'}]},
-      {key: '1.2',value: '1.2', children: [{key: '1.2.1', value: '1.2.1'}]}
+      {key: '1.2',value: '1.2', children: [{key: '1.2.1', value: '1.2.1'}]},
+      {key: '1.3',value: '1.3', children: [{key: '1.3.1', value: '1.3.1'}]}
     ]
   },
   {
