@@ -3,6 +3,7 @@ import * as React from 'react';
 import { scopeClass } from '../helpers/helps';
 import './style.scss';
 import {TreeItem} from './tree.d';
+import {useState} from "react";
 
 
 const sc = scopeClass('rao-tree');
@@ -52,6 +53,7 @@ const TreeItem2: React.FunctionComponent<TreeItemProps2> = (props)=>{
 
 const TreeItem3 = (item: TreeItem, level = 0, selected: string|string[], fn: (clickedItem: TreeItem, isChecked: boolean)=>void) => {
   const {key, value, children} = item;
+  const [expanded, setExpanded] = useState(true)
   let currentLevel = level + 1;
   let levelClassName = `item-level-${currentLevel}`
 
@@ -68,11 +70,28 @@ const TreeItem3 = (item: TreeItem, level = 0, selected: string|string[], fn: (cl
     fn(item, e.target.checked)
   }
 
+  const onExpand = ()=>{
+    setExpanded(true);
+  }
+  const onCollapse = ()=>{
+    setExpanded(false);
+  }
+
   return <div key={key}  className={sc({[levelClassName]: true})}>
-    <div><input type="checkbox" checked={isChecked} onChange={onChange}/>{value}</div>
-    {children && children.map(sub => {
-      return TreeItem3(sub, level + 1, selected, fn);
-    })}
+    <div>
+      {
+        item.children ? <span>
+          {expanded ? <span onClick={onCollapse} style={{cursor:'pointer'}}>-</span> : <span onClick={onExpand} style={{cursor:'pointer'}}>+</span>}
+        </span> : <span style={{width: '15px', height: '15px', display:"inline-block"}} />
+      }
+      <input type="checkbox" checked={isChecked} onChange={onChange}/>{value}
+    </div>
+    <div className={`${sc('item-ct')} ${sc({item: true, collapsed: !expanded})}`}>
+      {children && children.map(sub => {
+        return TreeItem3(sub, level + 1, selected, fn);
+      })}
+    </div>
+
   </div>;
 };
 
